@@ -18,10 +18,9 @@ const Header = (props) => {
           <Link href="/contact">
             <Button>Contact</Button>
           </Link>
-          <ToggleButton />
         </div>
-
-        <div className="lg:hidden">
+        <ToggleButton />
+        <div className="lg:hidden flex gap-8">
           <MobileNav />{" "}
         </div>
       </div>
