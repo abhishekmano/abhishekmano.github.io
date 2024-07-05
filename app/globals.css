@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --color-primary: #e2e8f0;
+    --color-primary-hover: #cbd5e1;
     --color-contrast: #1f2937;
     --color-accent-default: #035ce2;
     --color-accent-hover: #0049b7;
@@ -12,6 +13,7 @@
   :root[class~="dark"] {
     /* --color-primary: #1c1c22; */
     --color-primary: #1f2937;
+    --color-primary-hover: #374151;
     --color-contrast: #e2e8f0;
     --color-accent-default: #00ff99;
     --color-accent-hover: #00e187;

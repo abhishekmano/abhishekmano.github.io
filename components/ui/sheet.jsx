@@ -90,7 +90,10 @@ SheetFooter.displayName = "SheetFooter";
 const SheetTitle = React.forwardRef(({ className, ...props }, ref) => (
   <SheetPrimitive.Title
     ref={ref}
-    className={cn("text-lg font-semibold text-slate-950 dark:text-slate-50")}
+    className={cn(
+      "text-lg font-semibold text-slate-950 dark:text-slate-50",
+      className
+    )}
     {...props}
   />
 ));

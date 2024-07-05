@@ -24,7 +24,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "var(--color-primary)",
+        primary: {
+          DEFAULT: "var(--color-primary)",
+          hover: "var(--color-primary-hover)",
+        },
+
         contrast: "var(--color-contrast)",
         accent: {
           DEFAULT: "var(--color-accent-default)",
