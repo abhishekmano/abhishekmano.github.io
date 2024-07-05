@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 const Photo = () => {
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
+  console.log("current theme", currentTheme);
   return (
     <div className="w-full h-full relative">
       <motion.div
@@ -25,7 +26,7 @@ const Photo = () => {
         >
           <Image
             src={
-              currentTheme == "light"
+              currentTheme != "dark"
                 ? "/assets/Dp-light.png"
                 : "/assets/Dp-dark.png"
             }
@@ -50,7 +51,7 @@ const Photo = () => {
             cx="253"
             cy="253"
             r="250"
-            stroke={theme == "light" ? "#035ce2" : "#00ff99"}
+            stroke={currentTheme != "dark" ? "#035ce2" : "#00ff99"}
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
