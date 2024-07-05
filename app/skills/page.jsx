@@ -15,9 +15,11 @@ import {
   SiAzuredevops,
   SiJavascript,
   SiRedux,
+  SiGithub,
 } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
 import { BsArrowDownRight } from "react-icons/bs";
+import { DiMsqlServer } from "react-icons/di";
 import Link from "next/link";
 import { motion } from "framer-motion";
 const sections = [
@@ -52,12 +54,12 @@ const sections = [
     href: "",
     skills: [
       {
-        icon: <FaReact />,
+        icon: <AiOutlineDotNet />,
         name: ".NET",
       },
       {
-        icon: <FaCss3 />,
-        name: "Spring Boot",
+        icon: <DiMsqlServer />,
+        name: "SQL Server",
       },
     ],
   },
@@ -74,6 +76,10 @@ const sections = [
         icon: <SiJavascript />,
         name: "JavaScript",
       },
+      {
+        icon: <FaPython />,
+        name: "Python",
+      },
     ],
   },
   {
@@ -82,8 +88,12 @@ const sections = [
     href: "",
     skills: [
       {
-        icon: <FaReact />,
-        name: "ReactJS",
+        icon: <SiMicrosoftazure />,
+        name: "Azure",
+      },
+      {
+        icon: <SiGithub />,
+        name: "Git",
       },
     ],
   },
