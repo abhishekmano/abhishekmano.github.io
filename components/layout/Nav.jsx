@@ -8,7 +8,7 @@ export const paths = [
   },
   {
     name: "about",
-    path: "/about",
+    path: "/resume",
   },
   {
     name: "skills",
@@ -18,10 +18,10 @@ export const paths = [
     name: "project",
     path: "/projects",
   },
-  {
-    name: "experience",
-    path: "/experience",
-  },
+  // {
+  //   name: "resume",
+  //   path: "/resume",
+  // },
 ];
 const Nav = () => {
   const pathname = usePathname();
