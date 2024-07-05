@@ -30,6 +30,7 @@ const Nav = () => {
       {paths.map((route, idx) => {
         return (
           <Link
+            key={idx}
             href={route.path}
             className={`${
               route.path == pathname && "text-accent border-b-2 border-accent"
