@@ -5,6 +5,7 @@ import React from "react";
 import { useTheme } from "next-themes";
 const Photo = () => {
   const { systemTheme, theme, setTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
   return (
     <div className="w-full h-full relative">
       <motion.div
@@ -24,7 +25,9 @@ const Photo = () => {
         >
           <Image
             src={
-              theme == "light" ? "/assets/Dp-light.png" : "/assets/Dp-dark.png"
+              currentTheme == "light"
+                ? "/assets/Dp-light.png"
+                : "/assets/Dp-dark.png"
             }
             style={{
               borderRadius: "300px", //👈 and here you can select border radius
