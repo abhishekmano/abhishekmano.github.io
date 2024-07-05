@@ -11,12 +11,15 @@ import {
 } from "react-icons/fa";
 import { AiOutlineDotNet } from "react-icons/ai";
 import {
-  SiMicrosoftazure,
   SiAzuredevops,
   SiJavascript,
+  SiMicrosoftazure,
   SiRedux,
   SiGithub,
+  SiDotnet,
+  SiCsharp,
 } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
 import { TbBrandCSharp } from "react-icons/tb";
 import { BsArrowDownRight } from "react-icons/bs";
 import { DiMsqlServer } from "react-icons/di";
@@ -55,13 +58,13 @@ const experience = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est rerum deleniti reprehenderit, modi dolor quod. Obcaecati aliquid provident vel, expedita aliquam aspernatur fugiat quo magnam quasi deserunt, temporibus quam facere.",
   info: [
     {
-      company: "Providence Global Centre",
+      company: "Providence Global Centre, Hyderabad",
       position: "Software Engineer II",
       duration: "Aug-2021 - present",
       description: "fjsafu df dsf dslfsl",
     },
     {
-      company: "Providence Global Centre",
+      company: "Providence Global Centre, Hyderabad",
       position: "Software Engineer I",
       duration: "Aug-2021 - present",
       description: "fjsafu df dsf dslfsl",
@@ -82,15 +85,15 @@ const education = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est rerum deleniti reprehenderit, modi dolor quod. Obcaecati aliquid provident vel, expedita aliquam aspernatur fugiat quo magnam quasi deserunt, temporibus quam facere.",
   info: [
     {
-      school: "College Of Engineering Trivandrum",
+      school: "College Of Engineering Trivandrum, Kerala",
       course: "Compute Science and Engineering (Honours)",
       duration: "July-2017 - July-2021",
       gpa: "9.98",
       description: "modi dolor quod. Obcaecati aliquid provident vel",
     },
     {
-      school: "Govt Mopla Higher Secondary School",
-      course: "Biology Science",
+      school: "Govt Mopla Higher Secondary School, Koyilandy, Kerala",
+      course: "Maths/Physics/Biology Science",
       duration: "June/2015 - June/2017",
       gpa: "100% - 1200/1200",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
@@ -103,20 +106,36 @@ const skills = {
   description: "fsad fsdf sdgfsd g",
   info: [
     {
-      icon: <FaCss3 />,
-      name: "CSS",
+      icon: <SiDotnet />,
+      name: "Dot Net",
     },
     {
-      icon: <FaCss3 />,
-      name: "CSS",
+      icon: <FaReact />,
+      name: "React",
     },
     {
-      icon: <FaCss3 />,
-      name: "CSS",
+      icon: <FaHtml5 />,
+      name: "HTML 5",
     },
     {
-      icon: <FaCss3 />,
-      name: "CSS",
+      icon: <SiJavascript />,
+      name: "Javascript",
+    },
+    {
+      icon: <SiCsharp />,
+      name: "CSharp",
+    },
+    {
+      icon: <SiRedux />,
+      name: "Redux",
+    },
+    {
+      icon: <DiMsqlServer />,
+      name: "SQL Server",
+    },
+    {
+      icon: <SiMicrosoftazure />,
+      name: "Azure",
     },
     {
       icon: <FaCss3 />,
@@ -133,6 +152,7 @@ import {
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
+import { icons } from "lucide-react";
 const Resume = () => {
   return (
     <motion.div
@@ -214,7 +234,7 @@ const Resume = () => {
                             <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
                             <p className="text-contrast/60">{info.school}</p>
                           </div>{" "}
-                          <p className="text-contrast/60">{info.description}</p>
+                          {/* <p className="text-contrast/60">{info.description}</p> */}
                         </li>
                       );
                     })}
@@ -223,8 +243,34 @@ const Resume = () => {
               </div>
             </TabsContent>
             <TabsContent value="skills" className="w-full">
-              {" "}
-              skills
+              <div className="flex flex-col gap-[30px]">
+                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h3 className="text-4xl font-bold">{skills.title}</h3>
+                  <p className="max-w-[600p] text-contrast/60 mx-auto">
+                    {skills.description}
+                  </p>
+                </div>
+                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px] ">
+                  {skills.info.map((skill, index) => {
+                    return (
+                      <li key={index}>
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger className="w-full h-[130px] rounded-xl flex justify-center items-center bg-primary-hover group">
+                              <div className="text-5xl group-hover:text-accent transition-all duration-300">
+                                {skill.icon}
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p className="capitalize"> {skill.name}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </TabsContent>
             <TabsContent value="about" className="w-full">
               {" "}
