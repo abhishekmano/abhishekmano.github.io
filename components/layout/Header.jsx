@@ -19,10 +19,10 @@ const Header = (props) => {
             <Button>Contact</Button>
           </Link>
         </div>
-
         <div className="lg:hidden flex gap-8">
           <ToggleButton />
           <MobileNav />
+
         </div>
       </div>
       <div className="hidden lg:flex items-center gap-8">

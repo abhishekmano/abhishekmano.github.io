@@ -16,8 +16,8 @@ export default function Home() {
               <span className="text-accent">Abhishek Manoharan</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-primary/80">
-              Still Writing the content about me.... sdf sdgf sdgfsd afgdf gdfg
-              df gdf gfdg dfg dfg dfg treny6u
+              Still Writing the content about me....
+
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button
