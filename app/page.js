@@ -11,12 +11,10 @@ export default function Home() {
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl">Software Developer</span>
             <h1 className="h1">
-              {" "}
-              Hello I'm <br />{" "}
+              Hello I&apos;m <br />
               <span className="text-accent">Abhishek Manoharan</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-primary/80">
-              {" "}
               Still Writing the content about me....
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
@@ -25,7 +23,7 @@ export default function Home() {
                 size="lg"
                 className="uppercase flex items-center gap-2"
               >
-                <span>Download CV</span>{" "}
+                <span>Download CV</span>
                 <FiDownload className="text-xl"></FiDownload>
               </Button>
               <div className="mb-8 xl:mb-0">
