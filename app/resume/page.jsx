@@ -86,14 +86,14 @@ const education = {
       course: "Compute Science and Engineering (Honours)",
       duration: "July-2017 - July-2021",
       gpa: "9.98",
-      description: "",
+      description: "modi dolor quod. Obcaecati aliquid provident vel",
     },
     {
       school: "Govt Mopla Higher Secondary School",
       course: "Biology Science",
       duration: "June/2015 - June/2017",
       gpa: "100% - 1200/1200",
-      description: "fjsafu df dsf dslfsl",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     },
   ],
 };
@@ -156,6 +156,7 @@ const Resume = () => {
           </TabsList>
           {/* Content of Tabs */}
           <div className="min-h-[70vh] w-full">
+            {/* Experience */}
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{experience.title}</h3>
@@ -186,8 +187,40 @@ const Resume = () => {
               </div>
             </TabsContent>
             <TabsContent value="education" className="w-full">
-              {" "}
-              education
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{education.title}</h3>
+                <p className="max-w-[600px] text-contrast/60 mx-auto xl:mx-0">
+                  {education.description}
+                </p>
+                <ScrollArea className="h-[400px]">
+                  <ul className="grid grid-cols-1 gap-[30px] p-2 m-2">
+                    {education.info.map((info, idx) => {
+                      return (
+                        <li
+                          key={idx}
+                          className="bg-primary-hover h-[190px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 "
+                        >
+                          <span className="text-accent">{info.duration}</span>
+                          <h3 className="text-xl max-w-full min-h-[30px] text-center lg:text-left ">
+                            {info.course}
+                          </h3>
+                          <p className="text-l max-w-full  text-center lg:text-left  ">
+                            Score :{" "}
+                            <span className="font-semibold text-accent text-xl">
+                              {info.gpa}
+                            </span>
+                          </p>
+                          <div className="flex items-center gap-3">
+                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                            <p className="text-contrast/60">{info.school}</p>
+                          </div>{" "}
+                          <p className="text-contrast/60">{info.description}</p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </ScrollArea>
+              </div>
             </TabsContent>
             <TabsContent value="skills" className="w-full">
               {" "}
