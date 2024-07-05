@@ -6,7 +6,7 @@ import ToggleButton from "@/app/toggleButton";
 import MobileNav from "./MobileNav";
 const Header = (props) => {
   return (
-    <header className="py-8 xl:py-12">
+    <header className="py-8 xl:py-10 flex flex-row mr-8">
       <div className="container mx-auto flex justify-between items-center ">
         <Link href="/">
           <h1 className="text-4xl font-semibold">
@@ -19,10 +19,14 @@ const Header = (props) => {
             <Button>Contact</Button>
           </Link>
         </div>
-        <ToggleButton />
+
         <div className="lg:hidden flex gap-8">
-          <MobileNav />{" "}
+          <ToggleButton />
+          <MobileNav />
         </div>
+      </div>
+      <div className="hidden lg:flex items-center gap-8">
+        <ToggleButton />
       </div>
     </header>
   );

@@ -3,11 +3,12 @@ import { Button } from "@/components/ui/button";
 //Components
 import Socials from "@/components/Socials";
 import Photo from "@/components/styledElements/Photo";
+import Stats from "@/components/styledElements/Stats";
 export default function Home() {
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
-        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
+        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-8">
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl">Software Developer</span>
             <h1 className="h1">
@@ -15,7 +16,8 @@ export default function Home() {
               <span className="text-accent">Abhishek Manoharan</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-primary/80">
-              Still Writing the content about me....
+              Still Writing the content about me.... sdf sdgf sdgfsd afgdf gdfg
+              df gdf gfdg dfg dfg dfg treny6u
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button
@@ -41,6 +43,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Stats />
     </section>
   );
 }

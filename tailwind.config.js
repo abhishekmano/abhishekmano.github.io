@@ -25,6 +25,7 @@ module.exports = {
     extend: {
       colors: {
         primary: "var(--color-primary)",
+        contrast: "var(--color-contrast)",
         accent: {
           DEFAULT: "var(--color-accent-default)",
           hover: "var(--color-accent-hover)",
