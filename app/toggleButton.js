@@ -12,9 +12,11 @@ const ToggleButton = () => {
       <Button
         variant="outline"
         size="icon"
-        onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
+        onClick={() =>
+          currentTheme == "dark" ? setTheme("light") : setTheme("dark")
+        }
       >
-        {theme == "dark" ? (
+        {currentTheme == "dark" ? (
           <Moon className="h-4 w-4" />
         ) : (
           <Sun className="h-4 w-4" />

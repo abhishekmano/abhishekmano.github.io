@@ -1,7 +1,9 @@
+"use client";
 import Link from "next/link";
 import Nav from "./Nav";
 import { Button } from "../ui/button";
 import ToggleButton from "@/app/toggleButton";
+import MobileNav from "./MobileNav";
 const Header = (props) => {
   return (
     <header className="py-8 xl:py-12">
@@ -11,7 +13,7 @@ const Header = (props) => {
             Mano <span className="text-accent">.</span>
           </h1>
         </Link>
-        <div className="hidden xl:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           <Nav />
           <Link href="/contact">
             <Button>Contact</Button>
@@ -19,7 +21,9 @@ const Header = (props) => {
           <ToggleButton />
         </div>
 
-        <div className="xl:hidden"> mobile nav</div>
+        <div className="lg:hidden">
+          <MobileNav />{" "}
+        </div>
       </div>
     </header>
   );
