@@ -25,28 +25,27 @@ import { BsArrowDownRight } from "react-icons/bs";
 import { DiMsqlServer } from "react-icons/di";
 const about = {
   title: "About me",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ipsum soluta quaerat, consequatur nostrum, minima commodi impedit repellat recusandae reprehenderit et dolorem veritatis earum, odit rerum id praesentium! Nam, et.",
+  description: (
+    <>
+      As a seasoned software engineer, I specialize in designing and
+      implementing robust end to end cloud based solutions.
+      <br /> <br />
+      My passion lies in solving complex challenges, optimizing processes, and
+      driving efficiency through innovative solutions.
+    </>
+  ),
   info: [
     {
       fieldName: "Name",
-      fieldValue: "value",
+      fieldValue: "Abhishek Manoharan",
     },
     {
-      fieldName: "Name",
-      fieldValue: "value",
+      fieldName: "Email",
+      fieldValue: "abhishekmanoharan1999@gmail.com",
     },
     {
-      fieldName: "Name",
-      fieldValue: "value",
-    },
-    {
-      fieldName: "Name",
-      fieldValue: "value",
-    },
-    {
-      fieldName: "Name",
-      fieldValue: "value",
+      fieldName: "Phone",
+      fieldValue: "+91-8891410500",
     },
   ],
 };
@@ -273,8 +272,27 @@ const Resume = () => {
               </div>
             </TabsContent>
             <TabsContent value="about" className="w-full">
-              {" "}
-              about
+              <div className="flex flex-col gap-[30px]">
+                <h3 className="text-4xl font-bold">{about.title}</h3>
+                <p className="max-w-[600px] text-contrast/60 mx-auto xl:mx-0">
+                  {about.description}
+                </p>
+                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px]">
+                  {about.info.map((item, index) => {
+                    return (
+                      <li
+                        key={index}
+                        className="flex items-centre justify-center xl:justify-start gap-4"
+                      >
+                        <span className="text-contrast/60">
+                          {item.fieldName}
+                        </span>
+                        <span className="text-xl">{item.fieldValue}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </TabsContent>
           </div>
         </Tabs>

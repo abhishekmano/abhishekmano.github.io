@@ -25,14 +25,14 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "var(--color-primary)",
-          hover: "var(--color-primary-hover)",
+          DEFAULT: "rgb(var(--color-primary) / <alpha-value> )",
+          hover: "rgb(var(--color-primary-hover) / <alpha-value>)",
         },
 
-        contrast: "var(--color-contrast)",
+        contrast: "rgb(var(--color-contrast) / <alpha-value> )",
         accent: {
-          DEFAULT: "var(--color-accent-default)",
-          hover: "var(--color-accent-hover)",
+          DEFAULT: "rgb(var(--color-accent-default) / <alpha-value>)",
+          hover: "rgb(var(--color-accent-hover) / <alpha-value>)",
         },
       },
       keyframes: {

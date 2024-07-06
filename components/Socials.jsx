@@ -1,11 +1,18 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaCode, FaEnvelope } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaCode,
+  FaEnvelope,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 const socialLinks = [
-  { icon: <FaLinkedin />, path: "" },
-  { icon: <FaCode />, path: "" },
-  { icon: <FaEnvelope />, path: "" },
-  { icon: <FaGithub />, path: "" },
+  { icon: <FaLinkedin />, path: "https://www.linkedin.com/in/abhishek-mano/" },
+  { icon: <FaCode />, path: "https://leetcode.com/u/AbhishekManoharan/" },
+  { icon: <FaEnvelope />, path: "mailto:abhishekmanoharan1999@gmail.com" },
+  { icon: <FaGithub />, path: "https://github.com/abhishekmano" },
+  { icon: <FaWhatsapp />, path: "https://wa.me/918891410500" },
 ];
 
 const Socials = ({ containerStyles, iconStyles }) => {
