@@ -62,11 +62,10 @@ const experience = {
   title: "My Experience",
   description: (
     <>
-      {" "}
-      Software Development Engineer with 3 years of hands-on experience, I’ve
-      honed my skills in both frontend and backend development along with Azure
-      could, As a software Engineer 2 in Providence india i have contributed to
-      Multiple LifeCycle Engineering Solutions
+      Software Development Engineer with 3 years of hands-on experience,
+      I&apos;ve honed my skills in both frontend and backend development along
+      with Azure could, As a software Engineer 2 in Providence india i have
+      contributed to Multiple LifeCycle Engineering Solutions
       <br />
     </>
   ),
@@ -98,15 +97,14 @@ const education = {
   title: "Academics",
   description: (
     <>
-      I hold a{" "}
+      I hold a
       <b className="text-contrast font-semibold">
-        {" "}
         Bachelor&apos;s degree with Honours in Computer Science and Engineering
-      </b>{" "}
+      </b>
       from the esteemed College of Engineering Trivandrum. During my tenure, I
       achieved the remarkable feat of securing the
       <b className="text-contrast font-semibold"> State Rank 1</b> at Kerala
-      Technological University (KTU) for the batch of 2017-2021. 🌟"
+      Technological University (KTU) for the batch of 2017-2021. 🌟
     </>
   ),
   info: [
