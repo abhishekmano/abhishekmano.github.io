@@ -205,19 +205,20 @@ const Resume = () => {
                 </ScrollArea>
               </div>
             </TabsContent>
+            {/* Education */}
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{education.title}</h3>
                 <p className="max-w-[600px] text-contrast/60 mx-auto xl:mx-0">
                   {education.description}
                 </p>
-                <ScrollArea className="h-[400px]">
+                <ScrollArea className="h-[400px] ">
                   <ul className="grid grid-cols-1 gap-[30px] p-2 m-2">
                     {education.info.map((info, idx) => {
                       return (
                         <li
                           key={idx}
-                          className="bg-primary-hover h-[190px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 "
+                          className="bg-primary-hover h-[300px] sm:h-[180px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 "
                         >
                           <span className="text-accent">{info.duration}</span>
                           <h3 className="text-xl max-w-full min-h-[30px] text-center lg:text-left ">
@@ -277,7 +278,7 @@ const Resume = () => {
                 <p className="max-w-[600px] text-contrast/60 mx-auto xl:mx-0">
                   {about.description}
                 </p>
-                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px]">
+                {/* <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px]">
                   {about.info.map((item, index) => {
                     return (
                       <li
@@ -291,7 +292,7 @@ const Resume = () => {
                       </li>
                     );
                   })}
-                </ul>
+                </ul> */}
               </div>
             </TabsContent>
           </div>
