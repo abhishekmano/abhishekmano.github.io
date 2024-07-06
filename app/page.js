@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Socials from "@/components/Socials";
 import Photo from "@/components/styledElements/Photo";
 import Stats from "@/components/styledElements/Stats";
+import PDFViewer from "@/components/PdfViewer";
 export default function Home() {
   return (
     <section className="h-full">
@@ -17,7 +18,6 @@ export default function Home() {
             </h1>
             <p className="max-w-[500px] mb-9 text-primary/80">
               Still Writing the content about me....
-
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button
@@ -25,8 +25,13 @@ export default function Home() {
                 size="lg"
                 className="uppercase flex items-center gap-2"
               >
-                <span>Download CV</span>
-                <FiDownload className="text-xl"></FiDownload>
+                <PDFViewer>
+                  <span>Resume</span>{" "}
+                </PDFViewer>
+
+                <a href="test.pdf" download>
+                  <FiDownload className="text-xl" />
+                </a>
               </Button>
               <div className="mb-8 xl:mb-0">
                 <Socials
