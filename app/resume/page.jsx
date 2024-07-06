@@ -25,28 +25,27 @@ import { BsArrowDownRight } from "react-icons/bs";
 import { DiMsqlServer } from "react-icons/di";
 const about = {
   title: "About me",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ipsum soluta quaerat, consequatur nostrum, minima commodi impedit repellat recusandae reprehenderit et dolorem veritatis earum, odit rerum id praesentium! Nam, et.",
+  description: (
+    <>
+      As a seasoned software engineer, I specialize in designing and
+      implementing robust end to end cloud based solutions.
+      <br /> <br />
+      My passion lies in solving complex challenges, optimizing processes, and
+      driving efficiency through innovative solutions.
+    </>
+  ),
   info: [
     {
       fieldName: "Name",
-      fieldValue: "value",
+      fieldValue: "Abhishek Manoharan",
     },
     {
-      fieldName: "Name",
-      fieldValue: "value",
+      fieldName: "Email",
+      fieldValue: "abhishekmanoharan1999@gmail.com",
     },
     {
-      fieldName: "Name",
-      fieldValue: "value",
-    },
-    {
-      fieldName: "Name",
-      fieldValue: "value",
-    },
-    {
-      fieldName: "Name",
-      fieldValue: "value",
+      fieldName: "Phone",
+      fieldValue: "+91-8891410500",
     },
   ],
 };
@@ -159,7 +158,7 @@ const Resume = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 2, duration: 0.4, ease: "easeIn" },
       }}
       className="min-h-[80vh] flex items-center justify-center py:12 xl:py-0"
     >
@@ -206,19 +205,20 @@ const Resume = () => {
                 </ScrollArea>
               </div>
             </TabsContent>
+            {/* Education */}
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{education.title}</h3>
                 <p className="max-w-[600px] text-contrast/60 mx-auto xl:mx-0">
                   {education.description}
                 </p>
-                <ScrollArea className="h-[400px]">
+                <ScrollArea className="h-[400px] ">
                   <ul className="grid grid-cols-1 gap-[30px] p-2 m-2">
                     {education.info.map((info, idx) => {
                       return (
                         <li
                           key={idx}
-                          className="bg-primary-hover h-[190px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 "
+                          className="bg-primary-hover h-[300px] sm:h-[180px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 "
                         >
                           <span className="text-accent">{info.duration}</span>
                           <h3 className="text-xl max-w-full min-h-[30px] text-center lg:text-left ">
@@ -273,8 +273,27 @@ const Resume = () => {
               </div>
             </TabsContent>
             <TabsContent value="about" className="w-full">
-              {" "}
-              about
+              <div className="flex flex-col gap-[30px]">
+                <h3 className="text-4xl font-bold">{about.title}</h3>
+                <p className="max-w-[600px] text-contrast/60 mx-auto xl:mx-0">
+                  {about.description}
+                </p>
+                {/* <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px]">
+                  {about.info.map((item, index) => {
+                    return (
+                      <li
+                        key={index}
+                        className="flex items-centre justify-center xl:justify-start gap-4"
+                      >
+                        <span className="text-contrast/60">
+                          {item.fieldName}
+                        </span>
+                        <span className="text-xl">{item.fieldValue}</span>
+                      </li>
+                    );
+                  })}
+                </ul> */}
+              </div>
             </TabsContent>
           </div>
         </Tabs>
