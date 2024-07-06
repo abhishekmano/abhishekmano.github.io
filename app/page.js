@@ -16,7 +16,7 @@ export default function Home() {
               Hello I&apos;m <br />
               <span className="text-accent">Abhishek Manoharan</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-primary/80">
+            <p className="max-w-[500px] mb-7 text-contrast/80">
               Still Writing the content about me....
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
@@ -25,13 +25,20 @@ export default function Home() {
                 size="lg"
                 className="uppercase flex items-center gap-2"
               >
-                <PDFViewer>
-                  <span>Resume</span>{" "}
-                </PDFViewer>
-
-                <a href="test.pdf" download>
+                <div className="hidden xl:flex">
+                  <PDFViewer>
+                    <span>Resume</span>{" "}
+                  </PDFViewer>
+                </div>
+                <a href="test.pdf" download className="hidden xl:flex">
                   <FiDownload className="text-xl" />
                 </a>
+                <div className="xl:hidden">
+                  <a href="test.pdf" download className="flex ">
+                    <span>Resume</span>
+                    <FiDownload className="text-xl" />
+                  </a>
+                </div>
               </Button>
               <div className="mb-8 xl:mb-0">
                 <Socials
