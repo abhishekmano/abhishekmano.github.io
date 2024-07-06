@@ -17,7 +17,7 @@ function PDFViewer({ children }) {
         <DialogHeader>
           <DialogTitle className="text-accent">Abhishek Manoharan</DialogTitle>
           <DialogDescription className="w-full h-full min-h-full p-3">
-            <iframe width="100%" height="100%" src="/test.pdf#zoom=80" />
+            <iframe width="100%" height="100%" src="/resume.pdf#zoom=80" />
           </DialogDescription>
         </DialogHeader>
       </DialogContent>

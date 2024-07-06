@@ -16,12 +16,26 @@ import {
   SiJavascript,
   SiRedux,
   SiGithub,
+  SiMaterialdesign,
+  SiKubernetes,
+  SiDocker,
+  SiNextdotjs,
+  SiAzurefunctions,
 } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
 import { BsArrowDownRight } from "react-icons/bs";
 import { DiMsqlServer } from "react-icons/di";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  AzAppService,
+  AzAppServiceWebAppColor,
+  AzApplicationInsightsColor,
+  AzKeyVault,
+  AzKeyVaultColor,
+  CosmosDBcolor,
+} from "azure-react-icons";
+import { RiInfinityLine } from "react-icons/ri";
 const sections = [
   {
     num: "01",
@@ -36,7 +50,10 @@ const sections = [
         icon: <FaHtml5 />,
         name: "HTML",
       },
-      ,
+      {
+        icon: <SiJavascript />,
+        name: "JavaScript",
+      },
       {
         icon: <FaCss3 />,
         name: "CSS",
@@ -46,6 +63,10 @@ const sections = [
         icon: <SiRedux />,
         name: "Redux",
       },
+      {
+        icon: <SiMaterialdesign />,
+        name: "Material UI",
+      },
     ],
   },
   {
@@ -54,31 +75,60 @@ const sections = [
     href: "",
     skills: [
       {
+        icon: <TbBrandCSharp />,
+        name: "C#",
+      },
+      {
         icon: <AiOutlineDotNet />,
         name: ".NET",
       },
       {
-        icon: <DiMsqlServer />,
-        name: "SQL Server",
+        icon: "",
+        name: "Entity Framework / Dapper",
+      },
+      {
+        icon: "",
+        name: "CQRS / Clean Architecture",
+      },
+
+      {
+        icon: "",
+        name: "xUnit",
+      },
+      {
+        icon: <FaPython />,
+        name: "Python",
       },
     ],
   },
   {
     num: "03",
-    title: "Languages",
+    title: "Database and Cloud",
     href: "",
     skills: [
       {
-        icon: <TbBrandCSharp />,
-        name: "C#",
+        icon: <DiMsqlServer />,
+        name: "SQL Server",
       },
       {
-        icon: <SiJavascript />,
-        name: "JavaScript",
+        icon: <CosmosDBcolor />,
+        name: "Cosmos DB",
       },
       {
-        icon: <FaPython />,
-        name: "Python",
+        icon: <AzKeyVaultColor size={18} />,
+        name: "KeyVault",
+      },
+      {
+        icon: <AzAppServiceWebAppColor size={18} />,
+        name: "App Service",
+      },
+      {
+        icon: <SiAzurefunctions />,
+        name: "Azure Function App",
+      },
+      {
+        icon: <AzApplicationInsightsColor size={18} />,
+        name: "App Insights",
       },
     ],
   },
@@ -94,6 +144,22 @@ const sections = [
       {
         icon: <SiGithub />,
         name: "Git",
+      },
+      {
+        icon: <RiInfinityLine />,
+        name: "CI/CD",
+      },
+      {
+        icon: <SiKubernetes />,
+        name: "Kubernetes",
+      },
+      {
+        icon: <SiDocker />,
+        name: "Docker",
+      },
+      {
+        icon: "",
+        name: "Agile",
       },
     ],
   },

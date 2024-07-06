@@ -17,7 +17,8 @@ export default function Home() {
               <span className="text-accent">Abhishek Manoharan</span>
             </h1>
             <p className="max-w-[500px] mb-7 text-contrast/80">
-              Still Writing the content about me....
+              👨🏽‍💻 Full-Time coder 📚 Part-Time Reader 🏸 Badminton Enthusiast and
+              Occasional Chef 🍳.
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button
@@ -30,11 +31,11 @@ export default function Home() {
                     <span>Resume</span>{" "}
                   </PDFViewer>
                 </div>
-                <a href="test.pdf" download className="hidden xl:flex">
+                <a href="resume.pdf" download className="hidden xl:flex">
                   <FiDownload className="text-xl" />
                 </a>
                 <div className="xl:hidden">
-                  <a href="test.pdf" download className="flex ">
+                  <a href="resume.pdf" download className="flex">
                     <span>Resume</span>
                     <FiDownload className="text-xl" />
                   </a>

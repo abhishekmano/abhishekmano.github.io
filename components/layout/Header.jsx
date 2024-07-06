@@ -22,7 +22,6 @@ const Header = (props) => {
         <div className="lg:hidden flex gap-8">
           <ToggleButton />
           <MobileNav />
-
         </div>
       </div>
       <div className="hidden lg:flex items-center gap-8">

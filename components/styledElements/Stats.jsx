@@ -14,7 +14,7 @@ const stats = [
     text: "+Full Stack Projects",
   },
   {
-    value: 8,
+    value: 10,
     text: "+Technology mastered",
   },
 ];

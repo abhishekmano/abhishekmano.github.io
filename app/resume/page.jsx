@@ -18,6 +18,9 @@ import {
   SiGithub,
   SiDotnet,
   SiCsharp,
+  SiAzurefunctions,
+  SiKubernetes,
+  SiMaterialdesign,
 } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
 import { TbBrandCSharp } from "react-icons/tb";
@@ -27,11 +30,15 @@ const about = {
   title: "About me",
   description: (
     <>
-      As a seasoned software engineer, I specialize in designing and
-      implementing robust end to end cloud based solutions.
-      <br /> <br />
-      My passion lies in solving complex challenges, optimizing processes, and
-      driving efficiency through innovative solutions.
+      <span className="font-bold text-contrast">
+        🚀 Passionate Software Engineer | Cloud Enthusiast
+      </span>
+      <br />
+      <br />
+      As a seasoned software engineer, I specialize in designing robust
+      end-to-end cloud solutions. <br /> <br />
+      My drive? Solving complex challenges, collaborating with teams, and
+      eagerly learning to stay ahead and to build remarkable things together! 🌟
     </>
   ),
   info: [
@@ -53,26 +60,35 @@ const about = {
 const experience = {
   icon: "add later",
   title: "My Experience",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est rerum deleniti reprehenderit, modi dolor quod. Obcaecati aliquid provident vel, expedita aliquam aspernatur fugiat quo magnam quasi deserunt, temporibus quam facere.",
+  description: (
+    <>
+      {" "}
+      Software Development Engineer with 3 years of hands-on experience, I’ve
+      honed my skills in both frontend and backend development along with Azure
+      could, As a software Engineer 2 in Providence india i have contributed to
+      Multiple LifeCycle Engineering Solutions
+      <br />
+    </>
+  ),
   info: [
     {
-      company: "Providence Global Centre, Hyderabad",
+      company: "Providence India, Hyderabad",
       position: "Software Engineer II",
       duration: "Aug-2021 - present",
-      description: "fjsafu df dsf dslfsl",
+      description: "",
     },
     {
-      company: "Providence Global Centre, Hyderabad",
+      company: "Providence India, Hyderabad",
       position: "Software Engineer I",
-      duration: "Aug-2021 - present",
-      description: "fjsafu df dsf dslfsl",
+      duration: "Aug-2021 - April-2022",
+      description: "",
     },
     {
-      company: "ICFOSS",
+      company:
+        "ICFOSS (International Centre For Free and Open Source Software)",
       position: "Intern",
-      duration: "Aug-2021 - present",
-      description: "fjsafu df dsf dslfsl",
+      duration: "July-2019",
+      description: "",
     },
   ],
 };
@@ -80,21 +96,34 @@ const experience = {
 const education = {
   icon: "add later",
   title: "Academics",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est rerum deleniti reprehenderit, modi dolor quod. Obcaecati aliquid provident vel, expedita aliquam aspernatur fugiat quo magnam quasi deserunt, temporibus quam facere.",
+  description: (
+    <>
+      I hold a{" "}
+      <b className="text-contrast font-semibold">
+        {" "}
+        Bachelor&apos;s degree with Honours in Computer Science and Engineering
+      </b>{" "}
+      from the esteemed College of Engineering Trivandrum. During my tenure, I
+      achieved the remarkable feat of securing the
+      <b className="text-contrast font-semibold"> State Rank 1</b> at Kerala
+      Technological University (KTU) for the batch of 2017-2021. 🌟"
+    </>
+  ),
   info: [
     {
       school: "College Of Engineering Trivandrum, Kerala",
-      course: "Compute Science and Engineering (Honours)",
+      course: "Bachelor of Technology (Honours)",
+      specialization: "Computer Science and Engineering ",
       duration: "July-2017 - July-2021",
-      gpa: "9.98",
+      gpa: "CGPA 9.98",
       description: "modi dolor quod. Obcaecati aliquid provident vel",
     },
     {
       school: "Govt Mopla Higher Secondary School, Koyilandy, Kerala",
-      course: "Maths/Physics/Biology Science",
+      course: "Higher Secondary",
+      specialization: "Science",
       duration: "June/2015 - June/2017",
-      gpa: "100% - 1200/1200",
+      gpa: "100% - 1200/1200 Marks",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     },
   ],
@@ -102,7 +131,8 @@ const education = {
 //skills
 const skills = {
   title: "My Skills",
-  description: "fsad fsdf sdgfsd g",
+  description:
+    "My skills include both frontend and backend technologies. Also knowledge in  Azure Cloud services, SQL and NoSQL Databases and Containerized applications.",
   info: [
     {
       icon: <SiDotnet />,
@@ -122,7 +152,7 @@ const skills = {
     },
     {
       icon: <SiCsharp />,
-      name: "CSharp",
+      name: "C#",
     },
     {
       icon: <SiRedux />,
@@ -139,6 +169,18 @@ const skills = {
     {
       icon: <FaCss3 />,
       name: "CSS",
+    },
+    {
+      icon: <SiAzurefunctions />,
+      name: "Azure Function",
+    },
+    {
+      icon: <SiKubernetes />,
+      name: "Kubernetes",
+    },
+    {
+      icon: <SiMaterialdesign />,
+      name: "Material UI",
     },
   ],
 };
@@ -164,14 +206,14 @@ const Resume = () => {
     >
       <div className="container mx-auto">
         <Tabs
-          defaultValue="experience"
+          defaultValue="about"
           className="flex flex-col xl:flex-row gap-[60px]"
         >
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
+            <TabsTrigger value="about">About Me</TabsTrigger>
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="about">About Me</TabsTrigger>
           </TabsList>
           {/* Content of Tabs */}
           <div className="min-h-[70vh] w-full">
@@ -182,27 +224,70 @@ const Resume = () => {
                 <p className="max-w-[600px] text-contrast/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
-                <ScrollArea className="h-[400px]">
-                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] p-2 m-2">
-                    {experience.info.map((info, idx) => {
-                      return (
-                        <li
-                          key={idx}
-                          className="bg-primary-hover h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
-                        >
-                          <span className="text-accent">{info.duration}</span>
-                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left ">
-                            {info.position}
-                          </h3>
-                          <div className="flex items-center gap-3">
-                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                            <p className="text-contrast/60">{info.company}</p>
-                          </div>{" "}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </ScrollArea>
+                <div className="grid grid-cols-1 xl:grid-cols-2">
+                  <div className="xl:order-none order-2 text-contrast/60">
+                    <div className="mt-8 xl:mt-0">
+                      <div className="text-accent font-semibold">
+                        Legacy Archive Portal (LAP)
+                      </div>
+                      <p>
+                        Replaced LDA (Legacy Data Archival) with a cost-saving,
+                        data-format-flexible archival solution saving 11 million
+                        dollars a year.
+                      </p>
+                    </div>
+                    <div>
+                      <div className="text-accent font-semibold mt-3">
+                        LES PORTAL
+                      </div>
+                      <p>
+                        Streamlined application retirement, automating processes
+                        and retiring 500+ apps via end to end intake solution.
+                      </p>
+                    </div>
+                    <div>
+                      <div className="text-accent font-semibold mt-3">
+                        Sleep Test Automation
+                      </div>
+                      <p>
+                        Contributed to server sleep test portal, optimizing
+                        infrastructure costs and accelerating infrastructure
+                        scream test .
+                      </p>
+                    </div>
+                    <div>
+                      <div className="text-accent font-semibold mt-3">
+                        Electronic Data Conversions Service LEDCS:
+                      </div>
+                      <p>
+                        Build configurable conversion solutions helps to ingest
+                        data from external source to EPIC EMR with configurable
+                        UI.
+                      </p>
+                    </div>
+                  </div>
+                  <ScrollArea className="h-[600px] order-1 xl:order-none">
+                    <ul className="grid grid-cols-1  gap-[30px] p-2 m-2">
+                      {experience.info.map((info, idx) => {
+                        return (
+                          <li
+                            key={idx}
+                            className="bg-primary-hover h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                          >
+                            <span className="text-accent">{info.duration}</span>
+                            <h3 className="text-xl max-w-[260px] min-h-[40px] text-center lg:text-left ">
+                              {info.position}
+                            </h3>
+                            <div className="flex items-center gap-3">
+                              <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                              <p className="text-contrast/60">{info.company}</p>
+                            </div>{" "}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </ScrollArea>
+                </div>
               </div>
             </TabsContent>
             {/* Education */}
@@ -213,7 +298,7 @@ const Resume = () => {
                   {education.description}
                 </p>
                 <ScrollArea className="h-[400px] ">
-                  <ul className="grid grid-cols-1 gap-[30px] p-2 m-2">
+                  <ul className="grid grid-cols-1 gap-[30px] p-2 m-2 ">
                     {education.info.map((info, idx) => {
                       return (
                         <li
@@ -221,11 +306,13 @@ const Resume = () => {
                           className="bg-primary-hover h-[300px] sm:h-[180px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 "
                         >
                           <span className="text-accent">{info.duration}</span>
-                          <h3 className="text-xl max-w-full min-h-[30px] text-center lg:text-left ">
+                          <h3 className="text-xl max-w-full min-h-[20px] text-center lg:text-left ">
                             {info.course}
                           </h3>
+                          <h3 className="text-xl max-w-full min-h-[30px] text-center lg:text-left ">
+                            {info.specialization}
+                          </h3>
                           <p className="text-l max-w-full  text-center lg:text-left  ">
-                            Score :{" "}
                             <span className="font-semibold text-accent text-xl">
                               {info.gpa}
                             </span>
@@ -242,6 +329,7 @@ const Resume = () => {
                 </ScrollArea>
               </div>
             </TabsContent>
+            {/* Skills Section */}
             <TabsContent value="skills" className="w-full">
               <div className="flex flex-col gap-[30px]">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
