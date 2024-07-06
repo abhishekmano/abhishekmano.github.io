@@ -226,7 +226,7 @@ const Resume = () => {
                 </p>
                 <div className="grid grid-cols-1 xl:grid-cols-2">
                   <div className="xl:order-none order-2 text-contrast/60">
-                    <div>
+                    <div className="mt-8 xl:mt-0">
                       <div className="text-accent font-semibold">
                         Legacy Archive Portal (LAP)
                       </div>

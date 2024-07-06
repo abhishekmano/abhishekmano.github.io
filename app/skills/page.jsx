@@ -84,7 +84,7 @@ const sections = [
       },
       {
         icon: "",
-        name: "Entity Framework",
+        name: "Entity Framework / Dapper",
       },
       {
         icon: "",
@@ -103,7 +103,7 @@ const sections = [
   },
   {
     num: "03",
-    title: "Database And Cloud",
+    title: "Database and Cloud",
     href: "",
     skills: [
       {

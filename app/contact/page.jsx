@@ -73,18 +73,13 @@ const Contact = () => {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row  gap-[30px]">
           <div className="xl:w-[44%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 bg-primary-hover rounded-xl p-10">
+            {/* <form className="flex flex-col gap-6 bg-primary-hover rounded-xl p-10">
               <h3 className="text-4xl text-accent">
                 {" "}
                 Let&apos;s get in touch{" "}
               </h3>{" "}
-              <p className="text-contrast/60">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Dolorem nisi nihil culpa natus quisquam veritatis, maiores
-                tenetur distinctio modi voluptate, illum doloribus sapiente
-                impedit, iusto accusamus quas? Deleniti, fugiat dicta.
-              </p>
-            </form>
+              <p className="text-contrast/60"></p>
+            </form> */}
           </div>
           <div className="flex-1 flex items-center xl:justify-end xl:order-none order-1 mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">

@@ -31,11 +31,11 @@ export default function Home() {
                     <span>Resume</span>{" "}
                   </PDFViewer>
                 </div>
-                <a href="test.pdf" download className="hidden xl:flex">
+                <a href="resume.pdf" download className="hidden xl:flex">
                   <FiDownload className="text-xl" />
                 </a>
                 <div className="xl:hidden">
-                  <a href="test.pdf" download className="flex ">
+                  <a href="resume.pdf" download className="flex">
                     <span>Resume</span>
                     <FiDownload className="text-xl" />
                   </a>
