@@ -202,7 +202,7 @@ const Projects = () => {
             </Swiper>
           </div>
           <div className="w-full xl:w-[60%] xl:h-[460px] flex flex-col xl:justify-between  ">
-            <div className="h-[460px] relative group flex justify-center items-center bg-primary-hover rounded-xl px-6">
+            <div className="xl:h-[460px]  h-auto relative group flex justify-center items-center bg-primary-hover rounded-xl px-6">
               <ul className="list-disc pl-4 pt-2 ">
                 {project.points.map((point, index) => {
                   return (
