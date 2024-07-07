@@ -1,4 +1,3 @@
-"use client";
 import { FiDownload } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 //Components
@@ -6,13 +5,7 @@ import Socials from "@/components/Socials";
 import Photo from "@/components/styledElements/Photo";
 import Stats from "@/components/styledElements/Stats";
 import PDFViewer from "@/components/PdfViewer";
-import ReactGA from "react-ga";
-import { useEffect } from "react";
 export default function Home() {
-  useEffect(() => {
-    ReactGA.initialize("TG-DWSMVKXQS2");
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
