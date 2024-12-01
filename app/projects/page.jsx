@@ -16,6 +16,23 @@ import WorkSliderBtns from "@/components/styledElements/WorkSliderBtns";
 const projects = [
   {
     num: "01",
+    category: "(NSA) Network Status Analytics ",
+    title: "test",
+    description: "Alert Automation Framework on ServiceNow Data-centers.",
+    points: [
+      "Managing Alert Automation running Investigation/Remediation on Alert over servicenow data-center CIs",
+      "Standardized CI Type on-boarding to the NSA Framework which greatly reduced developer overhead managing automation target types",
+      "Added Support for Kubernetes Clusters and Kubernetes Nodes for NSA Framework which enabled SREs to write automation on these",
+      "Significantly reduced development time and maintenance time for CI Type onboarding to NSA, which currently support 30+ CI types where automation can be written",
+    ],
+    stack: [
+      { name: "Javascript" },
+      { name: "Message Queue" },
+      { name: "Background Script" },
+    ],
+  },
+  {
+    num: "02",
     category: "(LAP) Legacy Archive Portal ",
     title: "test",
     description: "Complete Archive Solution to Archive App Data.",
@@ -44,7 +61,7 @@ const projects = [
     ],
   },
   {
-    num: "02",
+    num: "03",
     category: "(LES) Life Cycle Engineering Services Portal",
     title: "test",
     description: "Application Suite For Infra/App Retirement Solution",
@@ -71,7 +88,7 @@ const projects = [
     ],
   },
   {
-    num: "03",
+    num: "04",
     category: "(STAP) SLEEP TEST AUTOMATION",
     title: "test",
     description:
@@ -98,7 +115,7 @@ const projects = [
     ],
   },
   {
-    num: "04",
+    num: "05",
     category: "LEDCS Electronic DataConversion Services",
     title: "test",
     description:
@@ -119,7 +136,7 @@ const projects = [
     ],
   },
   {
-    num: "05",
+    num: "06",
     category: "SCRAP Server Decommissioning ",
     title: "test",
     description: "Server Decommission Solution ",
