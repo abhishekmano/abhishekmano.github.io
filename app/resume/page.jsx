@@ -62,18 +62,28 @@ const experience = {
   title: "My Experience",
   description: (
     <>
-      Software Development Engineer with 3 years of hands-on experience,
-      I&apos;ve honed my skills in both frontend and backend development along
-      with Azure could, As a software Engineer 2 in Providence india i have
-      contributed to Multiple LifeCycle Engineering Solutions
+      Software Development Engineer with <b>3.5+</b> years of hands-on
+      experience, I&apos;ve honed my skills in both frontend and backend
+      development along with Azure could.
+      <br></br> Currently Working as a <b>Software Development Engineer IC2</b>{" "}
+      in <b>ServiceNow</b> in Global Cloud Services Vertical Developing Products
+      for Ops Apps to run Support Servicenow Data-centers. Previously As a
+      software Engineer 2 in Providence india i have contributed to Multiple
+      LifeCycle Engineering Solutions
       <br />
     </>
   ),
   info: [
     {
+      company: "ServiceNow , Hyderabad",
+      position: "Software Engineer IC2",
+      duration: "Oct-2024 - present",
+      description: "",
+    },
+    {
       company: "Providence India, Hyderabad",
       position: "Software Engineer II",
-      duration: "Aug-2021 - present",
+      duration: "Aug-2021 - Sept-2024",
       description: "",
     },
     {
@@ -97,12 +107,12 @@ const education = {
   title: "Academics",
   description: (
     <>
-      I hold a
+      I hold a &nbsp;
       <b className="text-contrast font-semibold">
         Bachelor&apos;s degree with Honours in Computer Science and Engineering
-      </b>
-      from the esteemed College of Engineering Trivandrum. During my tenure, I
-      achieved the remarkable feat of securing the
+      </b>{" "}
+      &nbsp; from the esteemed College of Engineering Trivandrum. During my
+      tenure, I achieved the remarkable feat of securing the
       <b className="text-contrast font-semibold"> State Rank 1</b> at Kerala
       Technological University (KTU) for the batch of 2017-2021. 🌟
     </>
@@ -120,8 +130,8 @@ const education = {
       school: "Govt Mopla Higher Secondary School, Koyilandy, Kerala",
       course: "Higher Secondary",
       specialization: "Science",
-      duration: "June/2015 - June/2017",
-      gpa: "100% - 1200/1200 Marks",
+      duration: "June-2015 - June-2017",
+      gpa: "100% - 1200/1200",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     },
   ],
@@ -224,6 +234,17 @@ const Resume = () => {
                 </p>
                 <div className="grid grid-cols-1 xl:grid-cols-2">
                   <div className="xl:order-none order-2 text-contrast/60">
+                    <div className="mt-8 xl:mt-0">
+                      <div className="text-accent font-semibold">
+                        Network Status Analytics (NSA)
+                      </div>
+                      <p>
+                        Managing NSA (Network Status Analytics Framework to run
+                        investigation and Remediation on 16+ servicenow
+                        Data-centers over 6M+ Configuration Items to resolve
+                        alerts using automatons).
+                      </p>
+                    </div>
                     <div className="mt-8 xl:mt-0">
                       <div className="text-accent font-semibold">
                         Legacy Archive Portal (LAP)
