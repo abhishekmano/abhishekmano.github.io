@@ -8,8 +8,9 @@ import {
   FaNodeJs,
   FaGithub,
   FaPython,
+  FaAngular,
+  FaJava,
 } from "react-icons/fa";
-import { AiOutlineDotNet } from "react-icons/ai";
 import {
   SiAzuredevops,
   SiJavascript,
@@ -21,6 +22,11 @@ import {
   SiAzurefunctions,
   SiKubernetes,
   SiMaterialdesign,
+  SiTypescript,
+  SiSpringboot,
+  SiBootstrap,
+  SiMongodb,
+  SiPostgresql,
 } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
 import { TbBrandCSharp } from "react-icons/tb";
@@ -62,9 +68,9 @@ const experience = {
   title: "My Experience",
   description: (
     <>
-      Software Development Engineer with <b>3.5+</b> years of hands-on
-      experience, I&apos;ve honed my skills in both frontend and backend
-      development along with Azure could.
+      Software Development Engineer with <b>4+</b> years of hands-on experience,
+      I&apos;ve honed my skills in both frontend and backend development along
+      with Azure could.
       <br></br> Currently Working as a <b>Software Development Engineer IC2</b>{" "}
       in <b>ServiceNow</b> in Global Cloud Services Vertical Developing Products
       for Ops Apps to run Support Servicenow Data-centers. Previously As a
@@ -77,7 +83,7 @@ const experience = {
     {
       company: "ServiceNow , Hyderabad",
       position: "Software Engineer IC2",
-      duration: "Oct-2024 - present",
+      duration: "Oct-2024 - Aug-2025",
       description: "",
     },
     {
@@ -140,8 +146,12 @@ const education = {
 const skills = {
   title: "My Skills",
   description:
-    "My skills include both frontend and backend technologies. Also knowledge in  Azure Cloud services, SQL and NoSQL Databases and Containerized applications.",
+    "Skilled in frontend and backend development with expertise in Java, Spring Boot, C#, .NET, React, TypeScript, and JavaScript. Experienced in SQL and NoSQL databases, event-driven systems using Kafka, and containerized applications with Docker and Kubernetes. Proficient in leveraging Azure Cloud services to design and deploy scalable solutions.",
   info: [
+    {
+      icon: <SiSpringboot />,
+      name: "Spring Boot",
+    },
     {
       icon: <SiDotnet />,
       name: "Dot Net",
@@ -149,6 +159,10 @@ const skills = {
     {
       icon: <FaReact />,
       name: "React",
+    },
+    {
+      icon: <FaAngular />,
+      name: "Angular",
     },
     {
       icon: <FaHtml5 />,
@@ -159,12 +173,28 @@ const skills = {
       name: "Javascript",
     },
     {
+      icon: <SiTypescript />,
+      name: "Typescript",
+    },
+    {
       icon: <SiCsharp />,
       name: "C#",
     },
     {
+      icon: <FaJava />,
+      name: "Java",
+    },
+    {
       icon: <SiRedux />,
       name: "Redux",
+    },
+    {
+      icon: <SiMongodb />,
+      name: "MongoDB",
+    },
+    {
+      icon: <SiPostgresql />,
+      name: "PostgreSQL",
     },
     {
       icon: <DiMsqlServer />,
@@ -189,6 +219,10 @@ const skills = {
     {
       icon: <SiMaterialdesign />,
       name: "Material UI",
+    },
+    {
+      icon: <SiBootstrap />,
+      name: "Bootstrap",
     },
   ],
 };
