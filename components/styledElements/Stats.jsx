@@ -6,7 +6,7 @@ const stats = [
     text: "+Years of Experience",
   },
   {
-    value: 1000,
+    value: 1100,
     text: "+Leetcode problems solved",
   },
   {

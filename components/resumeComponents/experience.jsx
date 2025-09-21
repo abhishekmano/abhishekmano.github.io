@@ -1,45 +1,64 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Image from "next/image";
+//import { ScrollArea } from "@radix-ui/react-scroll-area";
 const experience = {
   icon: "add later",
   title: "My Experience",
   description: (
     <>
-      Software Development Engineer with <b>4+</b> years of hands-on experience,
-      I&apos;ve honed my skills in both frontend and backend development along
-      with Azure could.
-      <br></br> Currently Working as a <b>Software Development Engineer IC2</b>{" "}
-      in <b>ServiceNow</b> in Global Cloud Services Vertical Developing Products
-      for Ops Apps to run Support Servicenow Data-centers. Previously As a
-      software Engineer 2 in Providence india i have contributed to Multiple
-      LifeCycle Engineering Solutions
-      <br />
+      Experienced Software Development Engineer with <b>4+ years</b> of
+      expertise in scalable enterprise solutions. Currently serving as a{" "}
+      <b>Software Development Engineer at Apple</b>, previously contributing as
+      Software Engineer IC2 at <b>ServiceNow</b> within Global Cloud Services,
+      developing operational applications for data center infrastructure. Prior
+      experience at <b>Providence India</b> includes delivering multiple
+      lifecycle engineering solutions across diverse technology stacks.
     </>
   ),
   info: [
     {
-      company: "ServiceNow, Hyderabad",
-      position: "Software Engineer IC2",
-      duration: "Oct-2024 - Aug-2025",
+      company: "Apple",
+      position: "Software Engineer",
+      duration: "Sep-2025 -   ",
       description: "",
+      logo: "/assets/logo/apple_logo.jpeg",
+      location: "Hyderabad",
+      current: true,
     },
     {
-      company: "Providence India, Hyderabad",
+      company: "ServiceNow",
+      position: "Software Engineer IC2",
+      duration: "Oct-2024 - Aug-2025",
+      logo: "/assets/logo/servicenow_logo.jpeg",
+      logoType: "square",
+      location: "Hyderabad",
+    },
+    {
+      company: "Providence India",
       position: "Software Engineer II",
       duration: "Aug-2021 - Sept-2024",
       description: "",
+      logo: "/assets/logo/providence_india_logo.jpeg",
+      logoType: "square",
+      location: "Hyderabad",
     },
     {
-      company: "Providence India, Hyderabad",
+      company: "Providence India",
       position: "Software Engineer I",
       duration: "Aug-2021 - April-2022",
       description: "",
+      logo: "/assets/logo/providence_india_logo.jpeg",
+      logoType: "square",
+      location: "Hyderabad",
     },
     {
-      company:
-        "ICFOSS (International Centre For Free and Open Source Software)",
+      company: "ICFOSS",
       position: "Intern",
       duration: "July-2019",
       description: "",
+      logo: "/assets/logo/icfoss_logo.jpeg",
+      logoType: "square",
+      location: "Trivandrum",
     },
   ],
 };
@@ -50,76 +69,73 @@ const Experience = () => {
       <p className="max-w-[600px] text-contrast/60 mx-auto xl:mx-0">
         {experience.description}
       </p>
-      <div className="grid grid-cols-1 xl:grid-cols-2">
-        <div className="xl:order-none order-2 text-contrast/60">
-          <div className="mt-8 xl:mt-0">
-            <div className="text-accent font-semibold">
-              Network Status Analytics (NSA)
-            </div>
-            <p>
-              Managing NSA (Network Status Analytics Framework to run
-              investigation and Remediation on 16+ servicenow Data-centers over
-              6M+ Configuration Items to resolve alerts using automatons).
-            </p>
-          </div>
-          <div className="mt-8 xl:mt-0">
-            <div className="text-accent font-semibold">
-              Legacy Archive Portal (LAP)
-            </div>
-            <p>
-              Replaced LDA (Legacy Data Archival) with a cost-saving,
-              data-format-flexible archival solution saving 11 million dollars a
-              year.
-            </p>
-          </div>
-          <div>
-            <div className="text-accent font-semibold mt-3">LES PORTAL</div>
-            <p>
-              Streamlined application retirement, automating processes and
-              retiring 500+ apps via end to end intake solution.
-            </p>
-          </div>
-          <div>
-            <div className="text-accent font-semibold mt-3">
-              Sleep Test Automation
-            </div>
-            <p>
-              Contributed to server sleep test portal, optimizing infrastructure
-              costs and accelerating infrastructure scream test .
-            </p>
-          </div>
-          <div>
-            <div className="text-accent font-semibold mt-3">
-              Electronic Data Conversions Service LEDCS:
-            </div>
-            <p>
-              Build configurable conversion solutions helps to ingest data from
-              external source to EPIC EMR with configurable UI.
-            </p>
-          </div>
-        </div>
-        <ScrollArea className="h-[600px] order-1 xl:order-none">
-          <ul className="grid grid-cols-1  gap-[30px] p-2 m-2">
-            {experience.info.map((info, idx) => {
-              return (
-                <li
-                  key={idx}
-                  className="bg-primary-hover h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
-                >
-                  <span className="text-accent">{info.duration}</span>
-                  <h3 className="text-xl max-w-[260px] min-h-[40px] text-center lg:text-left ">
+      <ScrollArea className="h-[240px] order-first xl:order-none max-w-[600px] overflow-auto mx-auto xl:mx-0">
+        <ul className="flex flex-col xl:flex-row gap-[30px] p-2 m-2 max-w">
+          {experience.info.map((info, idx) => {
+            return (
+              <li
+                key={idx}
+                className="bg-primary-hover h-[184px] w-full xl:min-w-[360px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+              >
+                {/* Header - Company with logo */}
+                <div className="flex items-center gap-3">
+                  {/* Company Logo */}
+                  <div
+                    className={`w-12 h-12 bg-accent/10  flex items-center justify-center flex-shrink-0 relative overflow-hidden ${
+                      info.logoType === "square" ? "rounded-sx" : "rounded-full"
+                    }`}
+                  >
+                    {info.logo ? (
+                      <Image
+                        src={info.logo}
+                        fill
+                        priority
+                        quality={100}
+                        alt={`${info.company} logo`}
+                        className="object-contain"
+                      />
+                    ) : (
+                      <span className="text-accent font-bold text-lg">
+                        {info.company.charAt(0)}
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <h4 className="text-contrast font-semibold text-lg">
+                      {info.company}
+                    </h4>
+                    <span className="text-contrast/60 text-sm">
+                      {info.location || "Remote"}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Position */}
+                <div className="flex-1 flex items-center">
+                  <h3 className="text-xl font-bold text-contrast text-center lg:text-left leading-tight">
                     {info.position}
                   </h3>
-                  <div className="flex items-center gap-3">
-                    <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                    <p className="text-contrast/60">{info.company}</p>
-                  </div>{" "}
-                </li>
-              );
-            })}
-          </ul>
-        </ScrollArea>
-      </div>
+                </div>
+
+                {/* Duration */}
+                <div className="flex items-center justify-between mt-auto">
+                  <div className="flex items-center gap-2">
+                    <span className="w-[6px] h-[6px] rounded-full bg-accent flex-shrink-0"></span>
+                    <span className="text-accent font-medium">
+                      {info.duration}
+                    </span>
+                  </div>
+
+                  {/* Optional: Current job indicator */}
+                  {info.current && (
+                    <div className="w-2 h-2 ml-2 rounded-full bg-accent animate-pulse"></div>
+                  )}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </ScrollArea>
     </div>
   );
 };

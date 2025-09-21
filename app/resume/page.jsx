@@ -15,6 +15,7 @@ import { icons } from "lucide-react";
 import Experience from "@/components/resumeComponents/experience";
 import Education from "@/components/resumeComponents/education";
 import Skills from "@/components/resumeComponents/skills";
+import WorkProjects from "@/components/resumeComponents/workProjects";
 const Resume = () => {
   return (
     <motion.div
@@ -35,6 +36,7 @@ const Resume = () => {
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
+            <TabsTrigger value="workProjects">Work Projects</TabsTrigger>
           </TabsList>
           {/* Content of Tabs */}
           <div className="min-h-[70vh] w-full">
@@ -52,6 +54,9 @@ const Resume = () => {
             </TabsContent>
             <TabsContent value="about" className="w-full">
               <AboutMe />
+            </TabsContent>
+            <TabsContent value="workProjects" className="w-full">
+              <WorkProjects />
             </TabsContent>
           </div>
         </Tabs>
