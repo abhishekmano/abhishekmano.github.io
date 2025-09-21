@@ -19,10 +19,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <GoogleAnalytics />
+    <html lang="en" suppressHydrationWarning>
       <body className={jetbrainsMono.variable}>
-        <ThemeProvider attribute="class">
+        <GoogleAnalytics />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <StairTransition />
           <PageTransition>{children}</PageTransition>

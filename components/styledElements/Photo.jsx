@@ -6,7 +6,6 @@ import { useTheme } from "next-themes";
 const Photo = () => {
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
-  console.log("current theme", currentTheme);
   return (
     <div className="w-full h-full relative">
       <motion.div
@@ -31,7 +30,7 @@ const Photo = () => {
                 : "/assets/Dp-dark.png"
             }
             style={{
-              borderRadius: "300px", //👈 and here you can select border radius
+              borderRadius: "300px",
             }}
             priority
             quality={100}

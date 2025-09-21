@@ -1,27 +1,22 @@
 "use client";
-import {
-  FaReact,
-  FaCss3,
-  FaHtml5,
-  FaJs,
-  FaTs,
-  FaNodeJs,
-  FaGithub,
-  FaPython,
-} from "react-icons/fa";
+import { FaReact, FaCss3, FaHtml5, FaPython, FaJava } from "react-icons/fa";
 import { AiOutlineDotNet } from "react-icons/ai";
 import {
   SiMicrosoftazure,
-  SiAzuredevops,
   SiJavascript,
   SiRedux,
   SiGithub,
-  SiMaterialdesign,
   SiKubernetes,
   SiDocker,
-  SiNextdotjs,
-  SiAzurefunctions,
+  SiMongodb,
+  SiApachekafka,
+  SiSpringboot,
+  SiPostgresql,
+  SiTypescript,
+  SiElastic,
+  SiRabbitmq,
 } from "react-icons/si";
+import { DiRedis } from "react-icons/di";
 import { TbBrandCSharp } from "react-icons/tb";
 import { BsArrowDownRight } from "react-icons/bs";
 import { DiMsqlServer } from "react-icons/di";
@@ -39,6 +34,37 @@ import { RiInfinityLine } from "react-icons/ri";
 const sections = [
   {
     num: "01",
+    title: "Back End Development",
+    href: "",
+    skills: [
+      {
+        icon: <FaJava />,
+        name: "Java",
+      },
+      {
+        icon: <SiSpringboot />,
+        name: "SpringBoot",
+      },
+      {
+        icon: <TbBrandCSharp />,
+        name: "C#",
+      },
+      {
+        icon: <AiOutlineDotNet />,
+        name: ".NET",
+      },
+      {
+        icon: <SiApachekafka />,
+        name: "Kafka",
+      },
+      {
+        icon: <FaPython />,
+        name: "Python",
+      },
+    ],
+  },
+  {
+    num: "02",
     title: "Front End Development",
     href: "",
     skills: [
@@ -64,71 +90,41 @@ const sections = [
         name: "Redux",
       },
       {
-        icon: <SiMaterialdesign />,
-        name: "Material UI",
+        icon: <SiTypescript />,
+        name: "Typescript",
       },
     ],
   },
-  {
-    num: "02",
-    title: "Back End Development",
-    href: "",
-    skills: [
-      {
-        icon: <TbBrandCSharp />,
-        name: "C#",
-      },
-      {
-        icon: <AiOutlineDotNet />,
-        name: ".NET",
-      },
-      {
-        icon: "",
-        name: "Entity Framework / Dapper",
-      },
-      {
-        icon: "",
-        name: "CQRS / Clean Architecture",
-      },
 
-      {
-        icon: "",
-        name: "xUnit",
-      },
-      {
-        icon: <FaPython />,
-        name: "Python",
-      },
-    ],
-  },
   {
     num: "03",
     title: "Database and Cloud",
     href: "",
     skills: [
       {
+        icon: <SiPostgresql />,
+        name: "PostgreSQL",
+      },
+      {
+        icon: <SiMongodb />,
+        name: "MongoDB",
+      },
+      {
+        icon: <DiRedis />,
+        name: "Redis",
+      },
+
+      {
+        icon: <SiElastic />,
+        name: "Elastic Search",
+      },
+      {
         icon: <DiMsqlServer />,
         name: "SQL Server",
       },
       {
-        icon: <CosmosDBcolor />,
-        name: "Cosmos DB",
-      },
-      {
-        icon: <AzKeyVaultColor size={18} />,
-        name: "KeyVault",
-      },
-      {
-        icon: <AzAppServiceWebAppColor size={18} />,
-        name: "App Service",
-      },
-      {
-        icon: <SiAzurefunctions />,
-        name: "Azure Function App",
-      },
-      {
-        icon: <AzApplicationInsightsColor size={18} />,
-        name: "App Insights",
+        icon: <SiRabbitmq />,
+        name: "RabbitMQ",
       },
     ],
   },
