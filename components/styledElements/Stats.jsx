@@ -2,11 +2,11 @@
 import CountUp from "react-countup";
 const stats = [
   {
-    value: 3,
+    value: 4,
     text: "+Years of Experience",
   },
   {
-    value: 900,
+    value: 1100,
     text: "+Leetcode problems solved",
   },
   {
