@@ -7,7 +7,7 @@ export const paths = [
     path: "/",
   },
   {
-    name: "about",
+    name: "resume",
     path: "/resume",
   },
   {
@@ -15,7 +15,7 @@ export const paths = [
     path: "/skills",
   },
   {
-    name: "project",
+    name: "projects",
     path: "/projects",
   },
   // {

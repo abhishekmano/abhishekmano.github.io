@@ -19,7 +19,7 @@ const experience = {
     {
       company: "Apple",
       position: "Software Engineer",
-      duration: "Sep-2025 -   ",
+      duration: "Sep-2025 - Present",
       description: "",
       logo: "/assets/logo/apple_logo.jpeg",
       location: "Hyderabad",
@@ -64,25 +64,25 @@ const experience = {
 };
 const Experience = () => {
   return (
-    <div className="flex flex-col gap-[30px] text-center xl:text-left">
-      <h3 className="text-4xl font-bold">{experience.title}</h3>
-      <p className="max-w-[600px] text-contrast/60 mx-auto xl:mx-0">
+    <div className="flex flex-col gap-6 text-left">
+      <h3 className="text-3xl xl:text-4xl font-bold">{experience.title}</h3>
+      <p className="max-w-[600px] text-contrast/70 leading-relaxed">
         {experience.description}
       </p>
-      <ScrollArea className="h-[240px] order-first xl:order-none max-w-[600px] overflow-auto mx-auto xl:mx-0">
-        <ul className="flex flex-col xl:flex-row gap-[30px] p-2 m-2 max-w">
+      <ScrollArea className="h-[420px] w-full overflow-auto">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 p-2 pr-4">
           {experience.info.map((info, idx) => {
             return (
               <li
                 key={idx}
-                className="bg-primary-hover h-[184px] w-full xl:min-w-[360px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                className="bg-primary-hover border border-contrast/10 hover:border-accent/40 min-h-[190px] w-full py-5 px-5 rounded-xl flex flex-col justify-between items-start gap-3 transition-all duration-300"
               >
                 {/* Header - Company with logo */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 w-full">
                   {/* Company Logo */}
                   <div
-                    className={`w-12 h-12 bg-accent/10  flex items-center justify-center flex-shrink-0 relative overflow-hidden ${
-                      info.logoType === "square" ? "rounded-sx" : "rounded-full"
+                    className={`w-12 h-12 bg-accent/10 flex items-center justify-center flex-shrink-0 relative overflow-hidden ${
+                      info.logoType === "square" ? "rounded-md" : "rounded-full"
                     }`}
                   >
                     {info.logo ? (
@@ -90,7 +90,7 @@ const Experience = () => {
                         src={info.logo}
                         fill
                         priority
-                        quality={100}
+                        sizes="48px"
                         alt={`${info.company} logo`}
                         className="object-contain"
                       />
@@ -100,8 +100,8 @@ const Experience = () => {
                       </span>
                     )}
                   </div>
-                  <div>
-                    <h4 className="text-contrast font-semibold text-lg">
+                  <div className="min-w-0">
+                    <h4 className="text-contrast font-semibold text-lg leading-tight truncate">
                       {info.company}
                     </h4>
                     <span className="text-contrast/60 text-sm">
@@ -112,13 +112,13 @@ const Experience = () => {
 
                 {/* Position */}
                 <div className="flex-1 flex items-center">
-                  <h3 className="text-xl font-bold text-contrast text-center lg:text-left leading-tight">
+                  <h3 className="text-lg xl:text-xl font-bold text-contrast text-left leading-tight">
                     {info.position}
                   </h3>
                 </div>
 
                 {/* Duration */}
-                <div className="flex items-center justify-between mt-auto">
+                <div className="flex items-center justify-between mt-auto w-full">
                   <div className="flex items-center gap-2">
                     <span className="w-[6px] h-[6px] rounded-full bg-accent flex-shrink-0"></span>
                     <span className="text-accent font-medium">

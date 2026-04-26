@@ -9,24 +9,21 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { BsArrowRight, BsGithub } from "react-icons/bs";
-import Link from "next/link";
-import { Description } from "@radix-ui/react-dialog";
 import WorkSliderBtns from "@/components/styledElements/WorkSliderBtns";
 const projects = [
   {
     num: "01",
     category: "(NSA) Network Status Analytics ",
     title: "test",
-    description: "Alert Automation Framework on ServiceNow Data-centers.",
+    description: "Alert automation framework for ServiceNow data centers.",
     points: [
-      "Managing Alert Automation running Investigation/Remediation on Alert over servicenow data-center CIs",
-      "Standardized CI Type on-boarding to the NSA Framework which greatly reduced developer overhead managing automation target types",
-      "Added Support for Kubernetes Clusters and Kubernetes Nodes for NSA Framework which enabled SREs to write automation on these",
-      "Significantly reduced development time and maintenance time for CI Type onboarding to NSA, which currently support 30+ CI types where automation can be written",
+      "Managed alert automation workflows for investigation and remediation across ServiceNow data center CIs.",
+      "Standardized CI type onboarding to the NSA framework, reducing developer overhead for automation target management.",
+      "Added support for Kubernetes clusters and nodes, enabling SREs to build automation for cloud-native infrastructure.",
+      "Reduced development and maintenance effort for CI type onboarding; the framework now supports 30+ CI types.",
     ],
     stack: [
-      { name: "Javascript" },
+      { name: "JavaScript" },
       { name: "Message Queue" },
       { name: "Background Script" },
     ],
@@ -35,13 +32,13 @@ const projects = [
     num: "02",
     category: "(LAP) Legacy Archive Portal ",
     title: "test",
-    description: "Complete Archive Solution to Archive App Data.",
+    description: "Complete archival solution for application data.",
     points: [
-      "Conceptualized and implemented cloud based data archival solution replacing 3rd Party application LDA (Legacy Data Access).",
-      " Saved substantial license cost of 8 million dollar per year.",
-      "Utilized no-code low-code techniques,resulting ina configurable User Interface",
-      "Significantly reduced development time from two weeks to just one day by creating user-configurable templates, search criteria and screens.",
-      "This Facilitated in Archiving 50+ apps with 1000+ screens and over 100TB data in 2 Years.",
+      "Designed and implemented a cloud-based archival solution to replace the third-party Legacy Data Access (LDA) application.",
+      "Delivered annual license cost savings of approximately 8 million dollars.",
+      "Used low-code and no-code patterns to build a highly configurable user interface.",
+      "Reduced delivery time from two weeks to one day through reusable templates, search criteria, and screen configurations.",
+      "Enabled archival for 50+ applications, 1000+ screens, and 100+ TB of data over two years.",
     ],
     stack: [
       { name: "React" },
@@ -51,7 +48,7 @@ const projects = [
         name: "SQL Server",
       },
       { name: "Logic App" },
-      { name: "Html/CSS" },
+      { name: "HTML/CSS" },
       {
         name: "JavaScript",
       },
@@ -64,18 +61,18 @@ const projects = [
     num: "03",
     category: "(LES) Life Cycle Engineering Services Portal",
     title: "test",
-    description: "Application Suite For Infra/App Retirement Solution",
+    description: "Application suite for infrastructure and app retirement.",
     points: [
-      "Revamped Application Retirement Intake solution, stream lining the process for retiring applications, resulting in 500+ Apps retired in 2 years.",
-      "Automated submission and decommissioning,significantly reducing intake time from three months to 15 days.",
-      "Developed,managed and deployed multipleBack ground services to Notify users, trigger workflow to initiate Retirement, and approval flows which reduced manual intervention of 30 Analysts",
+      "Revamped the application retirement intake process, helping retire 500+ applications in two years.",
+      "Automated submission and decommissioning flows, reducing intake time from three months to 15 days.",
+      "Developed and deployed multiple background services for notifications, retirement workflows, and approvals, reducing manual effort for 30 analysts.",
     ],
     stack: [
       { name: "React" },
       { name: ".NET" },
-      { name: "SeriLog" },
+      { name: "Serilog" },
       { name: "Function App" },
-      { name: "Html/CSS" },
+      { name: "HTML/CSS" },
       {
         name: "JavaScript",
       },
@@ -83,7 +80,7 @@ const projects = [
         name: "Cosmos DB",
       },
       {
-        name: "Docker/Kebernetes",
+        name: "Docker/Kubernetes",
       },
     ],
   },
@@ -92,11 +89,11 @@ const projects = [
     category: "(STAP) SLEEP TEST AUTOMATION",
     title: "test",
     description:
-      "Server Scream Test Solution. To Ping Disconnect and Perform Pre decommission Validation",
+      "Server scream-test solution for ping, disconnect, and pre-decommission validation.",
     points: [
-      "Created multiple dashboards and their endpoints for high level overview of server sleep test, and states. with 10+ views 100+ filters and multiple drill down option for Upper Management",
-      "Build  UI and API development in the Scream Test process which contains 3 Flows with 5+ Stages and over 30+ Tasks for each server Type Sleep Test with retry mechanism",
-      "750+ Servers sleep-tested with 2 weeks average per sever saving infrastructure cost",
+      "Created multiple dashboards and APIs for high-level visibility into server sleep-test status, with 10+ views, 100+ filters, and drill-down capabilities.",
+      "Built UI and API flows for a process with 3 flows, 5+ stages, and 30+ tasks per server type, including retry mechanisms.",
+      "Validated sleep tests for 750+ servers with an average cycle of two weeks per server, reducing infrastructure cost.",
     ],
     stack: [
       { name: "React" },
@@ -105,10 +102,8 @@ const projects = [
       {
         name: "Feature Management",
       },
-      {
-        name: "Application Insight",
-      },
-      { name: "Html/CSS" },
+      { name: "Application Insights" },
+      { name: "HTML/CSS" },
       {
         name: "JavaScript",
       },
@@ -116,20 +111,20 @@ const projects = [
   },
   {
     num: "05",
-    category: "LEDCS Electronic DataConversion Services",
+    category: "LEDCS Electronic Data Conversion Services",
     title: "test",
     description:
-      "Data Conversion solution from Data Ingestion from external sources to EPIC EMR",
+      "Data conversion solution for ingesting external data into EPIC EMR.",
     points: [
-      "Contributed to the electronic Data Conversion project from external vendors to the EPIC EMR system Reducing integration time to 2 weeks.",
-      "Developed solution with 5+conversionTypes 12+Datasets,Configurable attributes for each conversion. ",
+      "Contributed to electronic data conversion from external vendors into EPIC EMR, reducing integration time to two weeks.",
+      "Developed a configurable solution with 5+ conversion types and 12+ datasets.",
       "Engineered reusable components using custom hooks to streamline complex UI requirements, greatly reducing code duplication.",
     ],
     stack: [
       { name: "React" },
       { name: ".NET" },
-      { name: "BootStrap" },
-      { name: "Html/CSS" },
+      { name: "Bootstrap" },
+      { name: "HTML/CSS" },
       {
         name: "JavaScript",
       },
@@ -139,11 +134,11 @@ const projects = [
     num: "06",
     category: "SCRAP Server Decommissioning ",
     title: "test",
-    description: "Server Decommission Solution ",
+    description: "Server decommissioning solution.",
     points: [
-      "Created RESTful Service for External Teams to initiate Server Decommission",
-      "Developed Reliable Endpoints with OAuth Authentication to initiate Server Decommission for external services",
-      "Implemented Multiple validations and Transactional Execution to ensure integrity for Bulk Server Retirement",
+      "Created RESTful services for external teams to initiate server decommissioning.",
+      "Developed reliable endpoints with OAuth authentication for external integrations.",
+      "Implemented robust validations and transactional execution to ensure integrity during bulk server retirement.",
     ],
     stack: [
       { name: "MediatR" },
@@ -170,7 +165,7 @@ const Projects = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 0.5, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 0.12, duration: 0.3, ease: "easeInOut" },
       }}
       className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
     >

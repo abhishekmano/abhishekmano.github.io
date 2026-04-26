@@ -1,8 +1,7 @@
 "use client";
-import { FaReact, FaCss3, FaHtml5, FaPython, FaJava } from "react-icons/fa";
+import { FaReact, FaCss3, FaHtml5, FaPython, FaJava, FaCloud, FaUsers } from "react-icons/fa";
 import { AiOutlineDotNet } from "react-icons/ai";
 import {
-  SiMicrosoftazure,
   SiJavascript,
   SiRedux,
   SiGithub,
@@ -18,23 +17,13 @@ import {
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
 import { TbBrandCSharp } from "react-icons/tb";
-import { BsArrowDownRight } from "react-icons/bs";
 import { DiMsqlServer } from "react-icons/di";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  AzAppService,
-  AzAppServiceWebAppColor,
-  AzApplicationInsightsColor,
-  AzKeyVault,
-  AzKeyVaultColor,
-  CosmosDBcolor,
-} from "azure-react-icons";
 import { RiInfinityLine } from "react-icons/ri";
 const sections = [
   {
     num: "01",
-    title: "Back End Development",
+    title: "Backend Engineering",
     href: "",
     skills: [
       {
@@ -43,7 +32,7 @@ const sections = [
       },
       {
         icon: <SiSpringboot />,
-        name: "SpringBoot",
+        name: "Spring Boot",
       },
       {
         icon: <TbBrandCSharp />,
@@ -54,10 +43,6 @@ const sections = [
         name: ".NET",
       },
       {
-        icon: <SiApachekafka />,
-        name: "Kafka",
-      },
-      {
         icon: <FaPython />,
         name: "Python",
       },
@@ -65,12 +50,12 @@ const sections = [
   },
   {
     num: "02",
-    title: "Front End Development",
+    title: "Frontend Development",
     href: "",
     skills: [
       {
         icon: <FaReact />,
-        name: "ReactJS",
+        name: "React",
       },
       {
         icon: <FaHtml5 />,
@@ -84,21 +69,20 @@ const sections = [
         icon: <FaCss3 />,
         name: "CSS",
       },
-      ,
       {
         icon: <SiRedux />,
         name: "Redux",
       },
       {
         icon: <SiTypescript />,
-        name: "Typescript",
+        name: "TypeScript",
       },
     ],
   },
 
   {
     num: "03",
-    title: "Database and Cloud",
+    title: "Data and Messaging",
     href: "",
     skills: [
       {
@@ -116,7 +100,7 @@ const sections = [
 
       {
         icon: <SiElastic />,
-        name: "Elastic Search",
+        name: "Elasticsearch",
       },
       {
         icon: <DiMsqlServer />,
@@ -126,15 +110,19 @@ const sections = [
         icon: <SiRabbitmq />,
         name: "RabbitMQ",
       },
+      {
+        icon: <SiApachekafka />,
+        name: "Kafka",
+      },
     ],
   },
   {
     num: "04",
-    title: "Miscellaneous",
+    title: "Cloud and DevOps",
     href: "",
     skills: [
       {
-        icon: <SiMicrosoftazure />,
+        icon: <FaCloud />,
         name: "Azure",
       },
       {
@@ -154,7 +142,7 @@ const sections = [
         name: "Docker",
       },
       {
-        icon: "",
+        icon: <FaUsers />,
         name: "Agile",
       },
     ],
@@ -168,7 +156,7 @@ const Skills = () => {
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: { delay: 2, duration: 0.4, ease: "easeIn" },
+            transition: { delay: 0.12, duration: 0.3, ease: "easeInOut" },
           }}
           className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
         >
@@ -182,12 +170,6 @@ const Skills = () => {
                   <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
                     {section.num}
                   </div>
-                  <Link
-                    href={section.href}
-                    className="w-[50px] h-[50px] rounded-full bg-contrast group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45"
-                  >
-                    <BsArrowDownRight className="text-primary text-2xl" />
-                  </Link>
                 </div>
                 <h2 className="text-[42px] font-bold leading-none text-contrast group-hover:text-accent transition-all duration-500">
                   {section.title}

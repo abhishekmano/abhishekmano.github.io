@@ -2,23 +2,15 @@ import {
   FaReact,
   FaCss3,
   FaHtml5,
-  FaJs,
-  FaTs,
-  FaNodeJs,
-  FaGithub,
-  FaPython,
   FaAngular,
   FaJava,
+  FaCloud,
+  FaCode,
 } from "react-icons/fa";
 import {
-  SiAzuredevops,
   SiJavascript,
-  SiMicrosoftazure,
   SiRedux,
-  SiGithub,
   SiDotnet,
-  SiCsharp,
-  SiAzurefunctions,
   SiKubernetes,
   SiMaterialdesign,
   SiTypescript,
@@ -26,8 +18,10 @@ import {
   SiBootstrap,
   SiMongodb,
   SiPostgresql,
+  SiApachekafka,
+  SiRabbitmq,
 } from "react-icons/si";
-import { DiMsqlServer } from "react-icons/di";
+import { DiMsqlServer, DiRedis } from "react-icons/di";
 import {
   Tooltip,
   TooltipContent,
@@ -61,14 +55,14 @@ const skills = {
     },
     {
       icon: <SiJavascript />,
-      name: "Javascript",
+      name: "JavaScript",
     },
     {
       icon: <SiTypescript />,
-      name: "Typescript",
+      name: "TypeScript",
     },
     {
-      icon: <SiCsharp />,
+      icon: <FaCode />,
       name: "C#",
     },
     {
@@ -84,6 +78,10 @@ const skills = {
       name: "MongoDB",
     },
     {
+      icon: <DiRedis />,
+      name: "Redis",
+    },
+    {
       icon: <SiPostgresql />,
       name: "PostgreSQL",
     },
@@ -92,7 +90,7 @@ const skills = {
       name: "SQL Server",
     },
     {
-      icon: <SiMicrosoftazure />,
+      icon: <FaCloud />,
       name: "Azure",
     },
     {
@@ -100,8 +98,16 @@ const skills = {
       name: "CSS",
     },
     {
-      icon: <SiAzurefunctions />,
+      icon: <FaCloud />,
       name: "Azure Function",
+    },
+    {
+      icon: <SiApachekafka />,
+      name: "Kafka",
+    },
+    {
+      icon: <SiRabbitmq />,
+      name: "RabbitMQ",
     },
     {
       icon: <SiKubernetes />,
@@ -119,21 +125,21 @@ const skills = {
 };
 const Skills = () => {
   return (
-    <div className="flex flex-col gap-[30px]">
-      <div className="flex flex-col gap-[30px] text-center xl:text-left">
-        <h3 className="text-4xl font-bold">{skills.title}</h3>
-        <p className="max-w-[600p] text-contrast/60 mx-auto">
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 text-left">
+        <h3 className="text-3xl xl:text-4xl font-bold">{skills.title}</h3>
+        <p className="max-w-[600px] text-contrast/70 leading-relaxed">
           {skills.description}
         </p>
       </div>
-      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px] ">
+      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 xl:gap-[30px]">
         {skills.info.map((skill, index) => {
           return (
             <li key={index}>
               <TooltipProvider delayDuration={100}>
                 <Tooltip>
-                  <TooltipTrigger className="w-full h-[130px] rounded-xl flex justify-center items-center bg-primary-hover group">
-                    <div className="text-5xl group-hover:text-accent transition-all duration-300">
+                  <TooltipTrigger className="w-full h-[96px] sm:h-[110px] xl:h-[130px] rounded-xl flex justify-center items-center bg-primary-hover group">
+                    <div className="text-4xl xl:text-5xl group-hover:text-accent transition-all duration-300">
                       {skill.icon}
                     </div>
                   </TooltipTrigger>

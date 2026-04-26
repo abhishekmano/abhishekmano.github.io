@@ -4,11 +4,11 @@ import Nav from "./Nav";
 import { Button } from "../ui/button";
 import ToggleButton from "@/app/toggleButton";
 import MobileNav from "./MobileNav";
-const Header = (props) => {
+const Header = () => {
   return (
-    <header className="py-8 xl:py-10 flex flex-row mr-8">
-      <div className="container mx-auto flex justify-between items-center ">
-        <Link href="/">
+    <header className="py-8 xl:py-10">
+      <div className="container mx-auto flex justify-between items-center gap-6">
+        <Link href="/" aria-label="Go to homepage">
           <h1 className="text-4xl font-semibold">
             Mano <span className="text-accent">.</span>
           </h1>
@@ -18,14 +18,12 @@ const Header = (props) => {
           <Link href="/contact">
             <Button>Contact</Button>
           </Link>
+          <ToggleButton />
         </div>
         <div className="lg:hidden flex gap-8">
           <ToggleButton />
           <MobileNav />
         </div>
-      </div>
-      <div className="hidden lg:flex items-center gap-8">
-        <ToggleButton />
       </div>
     </header>
   );

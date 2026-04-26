@@ -3,15 +3,7 @@
 import AboutMe from "@/components/resumeComponents/about";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
-import { icons } from "lucide-react";
 import Experience from "@/components/resumeComponents/experience";
 import Education from "@/components/resumeComponents/education";
 import Skills from "@/components/resumeComponents/skills";
@@ -22,24 +14,34 @@ const Resume = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 2, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 0.12, duration: 0.3, ease: "easeInOut" },
       }}
-      className="min-h-[80vh] flex items-center justify-center py:12 xl:py-0"
+      className="min-h-[80vh] py-8 xl:py-0"
     >
       <div className="container mx-auto">
         <Tabs
           defaultValue="about"
-          className="flex flex-col xl:flex-row gap-[60px]"
+          className="flex flex-col xl:flex-row gap-8 xl:gap-[60px]"
         >
-          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-            <TabsTrigger value="about">About Me</TabsTrigger>
-            <TabsTrigger value="experience">Experience</TabsTrigger>
-            <TabsTrigger value="education">Education</TabsTrigger>
-            <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="workProjects">Work Projects</TabsTrigger>
+          <TabsList className="grid grid-cols-2 sm:grid-cols-3 xl:flex xl:flex-col w-full max-w-full xl:max-w-[320px] xl:mx-0 gap-3">
+            <TabsTrigger value="about">
+              About Me
+            </TabsTrigger>
+            <TabsTrigger value="experience">
+              Experience
+            </TabsTrigger>
+            <TabsTrigger value="education">
+              Education
+            </TabsTrigger>
+            <TabsTrigger value="skills">
+              Skills
+            </TabsTrigger>
+            <TabsTrigger value="workProjects" className="col-span-2 sm:col-span-1">
+              Work Projects
+            </TabsTrigger>
           </TabsList>
           {/* Content of Tabs */}
-          <div className="min-h-[70vh] w-full">
+          <div className="w-full bg-primary-hover/40 rounded-2xl p-4 sm:p-6 xl:p-0 xl:bg-transparent xl:rounded-none">
             {/* Experience */}
             <TabsContent value="experience" className="w-full">
               <Experience />

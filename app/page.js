@@ -17,30 +17,34 @@ export default function Home() {
               <span className="text-accent">Abhishek Manoharan</span>
             </h1>
             <p className="max-w-[500px] mb-7 text-contrast/80">
-              👨🏽‍💻 Full-Time coder 📚 Part-Time Reader 🏸 Badminton Enthusiast and
-              Occasional Chef 🍳.
+              👨🏽‍💻 Full-time coder, 📚 part-time reader, 🏸 badminton enthusiast,
+              and occasional chef 🍳.
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button
-                variant="outline"
-                size="lg"
-                className="uppercase flex items-center gap-2"
-              >
+              <div className="flex items-center gap-3">
                 <div className="hidden xl:flex">
                   <PDFViewer>
-                    <span>Resume</span>{" "}
+                    <Button variant="outline" size="lg" className="uppercase">
+                      Resume
+                    </Button>
                   </PDFViewer>
                 </div>
-                <a href="resume.pdf" download className="hidden xl:flex">
-                  <FiDownload className="text-xl" />
-                </a>
-                <div className="xl:hidden">
-                  <a href="resume.pdf" download className="flex">
-                    <span>Resume</span>
+                <Button asChild variant="outline" size="lg" className="xl:hidden uppercase">
+                  <a href="resume.pdf" download>
+                    Resume <FiDownload className="text-xl" />
+                  </a>
+                </Button>
+                <Button asChild variant="outline" size="icon" className="hidden xl:flex">
+                  <a
+                    href="resume.pdf"
+                    download
+                    aria-label="Download resume PDF"
+                    title="Download resume"
+                  >
                     <FiDownload className="text-xl" />
                   </a>
-                </div>
-              </Button>
+                </Button>
+              </div>
               <div className="mb-8 xl:mb-0">
                 <Socials
                   containerStyles="flex gap-6"
@@ -51,7 +55,7 @@ export default function Home() {
           </div>
           {/* Social Information */}
 
-          <div className="order-1 xl:order xl:order:none mb-8 xl:mb-0 ">
+          <div className="order-1 xl:order-none mb-8 xl:mb-0 ">
             <Photo />
           </div>
         </div>

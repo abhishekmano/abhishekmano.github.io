@@ -1,16 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -30,7 +18,7 @@ const info = [
   },
   {
     icon: <FaLinkedinIn />,
-    title: "Linked In",
+    title: "LinkedIn",
     href: "https://www.linkedin.com/in/abhishek-mano/",
     description: (
       <Link
@@ -67,19 +55,20 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 0.12, duration: 0.3, ease: "easeInOut" },
       }}
+      className="min-h-[80vh] flex items-center py-12 xl:py-0"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row  gap-[30px]">
+        <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:w-[44%] order-2 xl:order-none">
-            {/* <form className="flex flex-col gap-6 bg-primary-hover rounded-xl p-10">
-              <h3 className="text-4xl text-accent">
-                {" "}
-                Let&apos;s get in touch{" "}
-              </h3>{" "}
-              <p className="text-contrast/60"></p>
-            </form> */}
+            <div className="bg-primary-hover rounded-xl p-8">
+              <h2 className="h4 text-accent mb-3">Let&apos;s connect</h2>
+              <p className="text-contrast/70">
+                Feel free to reach out for collaboration, opportunities, or just
+                to say hi.
+              </p>
+            </div>
           </div>
           <div className="flex-1 flex items-center xl:justify-end xl:order-none order-1 mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
@@ -91,7 +80,9 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="text-contrast/60">{item.title}</div>
-                      <div className=" text-xl">{item.description}</div>
+                      <div className="text-base xl:text-xl break-words">
+                        {item.description}
+                      </div>
                     </div>
                   </li>
                 );

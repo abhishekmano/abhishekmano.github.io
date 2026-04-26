@@ -6,7 +6,6 @@ import PageTransition from "@/components/PageTransition";
 import { ThemeProvider } from "next-themes";
 import StairTransition from "@/components/StairTransition";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
-ThemeProvider;
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -14,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 export const metadata = {
   title: "Abhishek Manoharan",
-  description: "Manos Portfolio",
+  description: "Portfolio of Abhishek Manoharan",
 };
 
 export default function RootLayout({ children }) {

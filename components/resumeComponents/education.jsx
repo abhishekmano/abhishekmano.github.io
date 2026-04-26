@@ -36,27 +36,27 @@ const education = {
 };
 const Education = () => {
   return (
-    <div className="flex flex-col gap-[30px] text-center xl:text-left">
-      <h3 className="text-4xl font-bold">{education.title}</h3>
-      <p className="max-w-[600px] text-contrast/60 mx-auto xl:mx-0">
+    <div className="flex flex-col gap-6 text-left">
+      <h3 className="text-3xl xl:text-4xl font-bold">{education.title}</h3>
+      <p className="max-w-[600px] text-contrast/70 leading-relaxed">
         {education.description}
       </p>
-      <ScrollArea className="h-[400px] ">
-        <ul className="grid grid-cols-1 gap-[30px] p-2 m-2 ">
+      <ScrollArea className="h-[420px]">
+        <ul className="grid grid-cols-1 gap-4 xl:gap-[30px] p-2 m-1">
           {education.info.map((info, idx) => {
             return (
               <li
                 key={idx}
-                className="bg-primary-hover h-[300px] sm:h-[180px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 "
+                className="bg-primary-hover min-h-[220px] sm:min-h-[180px] py-6 px-6 rounded-xl flex flex-col justify-center items-start gap-1"
               >
                 <span className="text-accent">{info.duration}</span>
-                <h3 className="text-xl max-w-full min-h-[20px] text-center lg:text-left ">
+                <h3 className="text-lg xl:text-xl max-w-full min-h-[20px] text-left">
                   {info.course}
                 </h3>
-                <h3 className="text-xl max-w-full min-h-[30px] text-center lg:text-left ">
+                <h3 className="text-lg xl:text-xl max-w-full min-h-[30px] text-left">
                   {info.specialization}
                 </h3>
-                <p className="text-l max-w-full  text-center lg:text-left  ">
+                <p className="text-l max-w-full text-left">
                   <span className="font-semibold text-accent text-xl">
                     {info.gpa}
                   </span>

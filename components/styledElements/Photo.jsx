@@ -3,39 +3,45 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 const Photo = () => {
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { systemTheme, theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const currentTheme = theme === "system" ? systemTheme : theme;
+  const imageSrc =
+    mounted && currentTheme === "dark" ? "/assets/Dp-dark.png" : "/assets/Dp-light.png";
+  const strokeColor = mounted && currentTheme === "dark" ? "#00ff99" : "#035ce2";
   return (
     <div className="w-full h-full relative">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: { delay: 1, duration: "0.4", ease: "easeIn" },
+          transition: { delay: 0.12, duration: 0.28, ease: "easeInOut" },
         }}
       >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: { delay: 1.5, duration: "0.4", ease: "easeInOut" },
+            transition: { delay: 0.2, duration: 0.3, ease: "easeInOut" },
           }}
           className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-darken dark:mix-blend-lighten   absolute"
         >
           <Image
-            src={
-              currentTheme != "dark"
-                ? "/assets/Dp-light.png"
-                : "/assets/Dp-dark.png"
-            }
+            src={imageSrc}
             style={{
               borderRadius: "300px",
             }}
             priority
-            quality={100}
             fill
-            alt=""
+            sizes="(max-width: 1280px) 298px, 498px"
+            alt="Portrait of Abhishek Manoharan"
             className="object-contain"
           />
         </motion.div>
@@ -50,7 +56,7 @@ const Photo = () => {
             cx="253"
             cy="253"
             r="250"
-            stroke={currentTheme != "dark" ? "#035ce2" : "#00ff99"}
+            stroke={strokeColor}
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
