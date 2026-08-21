@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Terminal prompt">
+  <!--
+    Browser tab icon. Next auto-detects app/icon.svg and emits the <link rel="icon">,
+    which is why the stock app/favicon.ico was removed: with both present the .ico
+    wins and this would never be shown.
+
+    A filled tile rather than a bare glyph, so the mark holds its shape against both
+    light and dark tab bars. Navy is --accent from globals.css, hardcoded because an
+    SVG served as an icon has no access to the page's custom properties.
+
+    Strokes are 6/64 of the canvas (~1.5px at 16px) -- thinner than that and the
+    chevron disappears at favicon size.
+  -->
+  <rect width="64" height="64" rx="14" fill="#1f5b8f" />
+  <g
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="19,23 28,32 19,41" />
+    <line x1="35" y1="42" x2="46" y2="42" />
+  </g>
+</svg>

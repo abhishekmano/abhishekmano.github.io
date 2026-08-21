@@ -3,38 +3,24 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
-import { useState, useEffect } from "react";
+
 const ToggleButton = () => {
-  const { systemTheme, theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
-    // Prevent hydration mismatch by not rendering theme-dependent stuff until mounted
-    return (
-      <Button variant="outline" size="icon">
-        <Moon className="h-4 w-4" />
-      </Button>
-    );
-  }
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  const { resolvedTheme, setTheme } = useTheme();
+
   return (
-    <>
-      <Button
-        variant="outline"
-        size="icon"
-        onClick={() =>
-          currentTheme == "dark" ? setTheme("light") : setTheme("dark")
-        }
-      >
-        {currentTheme == "dark" ? (
-          <Moon className="h-4 w-4" />
-        ) : (
-          <Sun className="h-4 w-4" />
-        )}
-      </Button>
-    </>
+    <Button
+      variant="outline"
+      size="icon"
+      aria-label="Toggle colour theme"
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+    >
+      {/* Which icon shows is decided by CSS off the `dark` class on <html>, not by
+          React state. That removes the mounted-flag effect the old version needed
+          to dodge a hydration mismatch, and with it the placeholder icon that
+          briefly flashed on every load. */}
+      <Sun className="h-4 w-4 dark:hidden" />
+      <Moon className="hidden h-4 w-4 dark:block" />
+    </Button>
   );
 };
 

@@ -1,33 +1,52 @@
 "use client";
-import Link from "next/link";
+import React from "react";
 import Nav from "./Nav";
 import { Button } from "../ui/button";
 import ToggleButton from "@/app/toggleButton";
 import MobileNav from "./MobileNav";
-const Header = (props) => {
+import { profile } from "@/content/site";
+import { navCtaSection } from "@/content/sections";
+
+const Header = () => {
   return (
-    <header className="py-8 xl:py-10 flex flex-row mr-8">
-      <div className="container mx-auto flex justify-between items-center ">
-        <Link href="/">
-          <h1 className="text-4xl font-semibold">
-            Mano <span className="text-accent">.</span>
-          </h1>
-        </Link>
-        <div className="hidden lg:flex items-center gap-8">
+    // Sticky and translucent so the page reads as continuous behind it, with a
+    // hairline rule instead of the old hard edge. Previously the header simply
+    // scrolled away.
+    <header className="sticky top-0 z-50 border-b border-rule bg-canvas/80 backdrop-blur-md">
+      <div className="container mx-auto flex h-16 items-center justify-between gap-6">
+        <a href="#home" aria-label="Back to top" className="group">
+          <span className="font-display text-2xl font-semibold tracking-tight text-ink">
+            {profile.wordmark}
+            <span className="text-accent">.</span>
+          </span>
+        </a>
+
+        <div className="hidden lg:flex items-center gap-3">
           <Nav />
-          <Link href="/contact">
-            <Button>Contact</Button>
-          </Link>
+          {navCtaSection && (
+            <>
+              <div className="mx-1 h-5 w-px bg-rule" aria-hidden />
+              <Button asChild size="sm">
+                {/* A plain anchor, not next/link: this is an in-page jump now that
+                    /contact is a section rather than a route. Routing it through the
+                    router sent it to a page that no longer exists.
+
+                    Label and target come from the section marked `navCta`, so this
+                    button and the nav can never disagree about where it points. */}
+                <a href={`#${navCtaSection.id}`}>{navCtaSection.navLabel}</a>
+              </Button>
+            </>
+          )}
+          <ToggleButton />
         </div>
-        <div className="lg:hidden flex gap-8">
+
+        <div className="lg:hidden flex items-center gap-2">
           <ToggleButton />
           <MobileNav />
         </div>
       </div>
-      <div className="hidden lg:flex items-center gap-8">
-        <ToggleButton />
-      </div>
     </header>
   );
 };
+
 export default Header;

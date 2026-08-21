@@ -1,39 +1,523 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+
+/* Sources are declared explicitly instead of relying on automatic detection.
+   Detection walks the whole project and only skips what .gitignore lists, so it
+   was scanning out/ and .next/ -- and picking class names back out of the
+   exported HTML, where quotes are escaped as &#x27;. That turned
+   bg-[url('/assets/Dp-dark.webp')] into an unresolvable url(&#x27;...&#x27;) rule
+   and broke the build. */
+@source "./";
+@source "../components";
+@source "../lib";
+@source "../content";
+
+/* next-themes runs with attribute="class", so it toggles `dark` on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Design tokens
+
+   Named in print terms -- paper, ink, rule -- rather than the old
+   primary / primary-hover / contrast set, which described a position in a palette
+   instead of a purpose and left "which grey is a card again?" to guesswork.
+
+   Blue family, deliberately deep rather than electric. Earlier passes went neon
+   green, then a bright #2563EB, then indigo -- all of which read as the default
+   AI-template palette and glared at full-block size. This is a steel navy: the same
+   confidence, none of the buzz. The only dial worth touching is --band below.
+
+   Values are complete colors so Tailwind can derive opacity modifiers such as
+   text-muted/70 through color-mix().
+--------------------------------------------------------------------------- */
+:root {
+  /* Canvas is the page, paper is a card. Splitting these matters: when the page
+     was also pure white, cards dissolved into it. The tint gives cards something
+     to lift off. */
+  --canvas: #f7f8fa;
+  --paper: #ffffff;
+  --sunken: #eff1f5;
+
+  --rule: rgb(9 9 11 / 0.09);
+  --rule-strong: rgb(9 9 11 / 0.16);
+
+  --ink: #18181b;
+  --muted: #52525b;
+  --faint: #8a8a93;
+
+  --accent: #1f5b8f;
+  --accent-hover: #17466f;
+  --accent-soft: rgb(31 91 143 / 0.1);
+  --accent-contrast: #ffffff;
+
+  --elevation-card: 0 1px 2px rgb(9 9 11 / 0.05), 0 1px 3px rgb(9 9 11 / 0.04);
+  --elevation-lift: 0 4px 12px rgb(9 9 11 / 0.07), 0 1px 3px rgb(9 9 11 / 0.05);
+}
+
+.dark {
+  --canvas: #0b0b0d;
+  --paper: #15161a;
+  --sunken: #101116;
+
+  --rule: rgb(255 255 255 / 0.1);
+  --rule-strong: rgb(255 255 255 / 0.18);
+
+  --ink: #ededef;
+  --muted: #a1a1aa;
+  --faint: #71717a;
+
+  --accent: #7ba7ce;
+  --accent-hover: #93b9da;
+  --accent-soft: rgb(123 167 206 / 0.15);
+  --accent-contrast: #0b0b0d;
+
+  /* Shadows barely register on near-black, so dark mode leans on the border and
+     the surface step for elevation instead. */
+  --elevation-card: 0 1px 2px rgb(0 0 0 / 0.4);
+  --elevation-lift: 0 4px 14px rgb(0 0 0 / 0.5);
+}
+
+/* The stats band. Deep steel navy -- saturated enough to be a real colour block,
+   dark enough not to glare the way the brighter blues did. Pair with .hatch-band
+   for texture.
+
+   Everything inside keeps using bg-canvas / text-ink / border-rule and simply reads
+   correctly against it, instead of each child hardcoding light-on-dark. */
+.on-band {
+  --canvas: #1e4e7c;
+  --paper: #27597f;
+  --sunken: #1a4570;
+
+  --rule: rgb(255 255 255 / 0.18);
+  --rule-strong: rgb(255 255 255 / 0.3);
+
+  --ink: #ffffff;
+  --muted: rgb(255 255 255 / 0.78);
+  --faint: rgb(255 255 255 / 0.58);
+
+  --accent: #a9cbe8;
+  --accent-hover: #c2dcf1;
+  --accent-soft: rgb(255 255 255 / 0.12);
+  --accent-contrast: #1e4e7c;
+}
+
+/* Deepened on dark, so the band sits with the near-black page rather than shining
+   out of it. */
+.dark .on-band {
+  --canvas: #15334d;
+  --paper: #1c3f5c;
+  --sunken: #122c43;
+}
+
+/* `inline` is load-bearing: it makes the generated utilities reference these
+   custom properties at the point of use. Without it the values resolve once
+   against :root, so neither the .dark nor the .on-band overrides would apply,
+   and the font variables (which next/font declares on <body>, not :root) would be
+   out of scope. */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-paper: var(--paper);
+  --color-sunken: var(--sunken);
+
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-contrast: var(--accent-contrast);
+
+  /* Three voices, each with a job:
+       display -- Newsreader serif, for headings. Where the editorial feel comes from.
+       sans    -- Inter, for prose. Monospace at paragraph length is tiring to read.
+       mono    -- JetBrains Mono, kept for labels, numerals and eyebrows, which is
+                  where it earns its keep and preserves the engineering signal. */
+  --font-display: var(--f-newsreader), ui-serif, Georgia, serif;
+  --font-sans: var(--f-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--f-jetbrainsMono), ui-monospace, monospace;
+
+  --shadow-card: var(--elevation-card);
+  --shadow-lift: var(--elevation-lift);
+
+  /* lg and xl are deliberately narrower than the v4 defaults (64rem / 80rem);
+     these are the values the original config set. 2xl is dropped because the old
+     config replaced the default screens wholesale and nothing uses it. */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 60rem;
+  --breakpoint-xl: 75rem;
+  --breakpoint-2xl: initial;
+}
 
 @layer base {
-  :root {
-    --color-primary: 226 232 240;
-    --color-primary-hover: 203 213 225;
-    --color-contrast: 31 41 55;
-    --color-accent-default: 3 92 226;
-    --color-accent-hover: 0 73 183;
+  html {
+    /* Anchor nav: land clear of the 4rem sticky header, and ease rather than jump.
+       This is the ONLY anchor offset -- pairing it with scroll-margin-top on the
+       targets stacked the two and dropped every landing 160px too low. */
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
   }
-  :root[class~="dark"] {
-    /* --color-primary: #1c1c22; */
-    --color-primary: 31 41 55;
-    --color-primary-hover: 55 65 81;
-    --color-contrast: 226 232 240;
-    --color-accent-default: 0 255 153;
-    --color-accent-hover: 0 225 135;
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
+
   body {
-    @apply dark:bg-gray-800 bg-slate-200 font-primary dark:text-white text-black leading-loose;
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: var(--f-inter), ui-sans-serif, system-ui, sans-serif;
+    /* Was 2 (leading-loose), which left paragraphs feeling unmoored. */
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  .h1 {
-    @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--f-newsreader), ui-serif, Georgia, serif;
+    color: var(--ink);
+    letter-spacing: -0.01em;
   }
-  .h2 {
-    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-contrast);
   }
-  .h4 {
-    @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+
+  /* A visible, consistent focus ring for keyboard users. */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
-  .text-outline {
-    -webkit-text-stroke: 1px rgb(var(--color-contrast));
+
+  /* Scroll reveal. A class toggled from an IntersectionObserver (see
+     components/Reveal.jsx) rather than JS-animated styles, so the transition
+     runs on the compositor. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.65s ease,
+      transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .text-outline-hover {
-    -webkit-text-stroke: 1px rgb(var(--color-accent-hover));
+
+  /* Direction modifiers (components/Reveal.jsx, `from` prop). Same specificity as
+     .reveal, so they must come after it to win -- and before .reveal.is-visible,
+     which has two classes and therefore beats both. */
+  .reveal-left {
+    transform: translateX(-28px);
+  }
+
+  .reveal-right {
+    transform: translateX(28px);
+  }
+
+  /* A rule that draws itself downward. For the vertical spine of a timeline: the
+     rows slide in from it, so it has to already be there. 0.9s rather than 0.65s
+     because a line covering the full height of a section at card speed looks like
+     it is being yanked. */
+  .reveal-line {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition:
+      opacity 0.4s ease,
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* The horizontal counterpart: wipes left to right. Used on the rule under each
+     section heading, which is the one beat every section shares. */
+  .reveal-wipe {
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition:
+      opacity 0.3s ease,
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.is-visible,
+  .reveal-line.is-visible,
+  .reveal-wipe.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Without this, opacity: 0 would persist forever for anyone who asked for
+     reduced motion, hiding the content outright. Every modifier has to be listed:
+     .reveal-left sets its own transform, so neutralising .reveal alone would leave
+     content parked 28px off to the side -- and .reveal-line / .reveal-wipe would
+     leave a rule scaled to nothing, so the timeline spine and every section divider
+     would simply be missing. */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-line,
+    .reveal-wipe,
+    .reveal.is-visible,
+    .reveal-line.is-visible,
+    .reveal-wipe.is-visible {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 }
+
+/* v4 dropped theme.container, so the old center + padding behaviour is restated
+   here along with the per-breakpoint max-widths the built-in utility supplied. */
+@utility container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @variant sm {
+    max-width: 40rem;
+  }
+  @variant md {
+    max-width: 48rem;
+  }
+  @variant lg {
+    max-width: 60rem;
+  }
+  @variant xl {
+    max-width: 75rem;
+  }
+}
+
+/* Display headings, sized with clamp() so they scale continuously instead of
+   jumping at the xl breakpoint the way the old fixed 48px/80px pair did. */
+@utility h1 {
+  font-family: var(--f-newsreader), ui-serif, Georgia, serif;
+  font-size: clamp(2.75rem, 1.6rem + 4.2vw, 5rem);
+  line-height: 1.03;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+}
+
+@utility h2 {
+  font-family: var(--f-newsreader), ui-serif, Georgia, serif;
+  font-size: clamp(1.875rem, 1.25rem + 2vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+@utility h4 {
+  font-family: var(--f-newsreader), ui-serif, Georgia, serif;
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+/* Small uppercase mono label -- section eyebrows, field names, meta rows. */
+@utility label {
+  font-family: var(--f-jetbrainsMono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Tabular mono numerals, so counters and stats do not jitter as digits change. */
+@utility numeral {
+  font-family: var(--f-jetbrainsMono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Standard surface for grouped content. */
+@utility card {
+  background-color: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 0.875rem;
+  box-shadow: var(--elevation-card);
+}
+
+/* Texture for a solid fill. A 1px white line every 7px at 45 degrees -- the same
+   hatch technique, scoped to the band rather than the whole page. Pure CSS, so no
+   request and no tiling seams.
+   Dial: the rgb() alpha below. 0.09 obvious, 0.03 a whisper.
+   Pair with .on-band. */
+@utility hatch-band {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgb(255 255 255 / 0.055) 0 1px,
+      transparent 1px 7px
+    );
+  }
+}
+
+/* Comfortable measure for body copy -- roughly 68 characters. */
+@utility prose-measure {
+  max-width: 34rem;
+}
+
+@utility text-outline {
+  -webkit-text-stroke: 1px var(--rule-strong);
+}
+
+@utility text-outline-hover {
+  -webkit-text-stroke: 1px var(--accent);
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Texture
+
+   Deliberately confined to the accent band and the hero bloom. Page-wide pattern
+   on top of these read as two competing textures at once.
+--------------------------------------------------------------------------- */
+
+/* Faint dot grid for the plain page. Sits behind content and fades out toward the
+   bottom, so it grounds the hero without running into whatever follows.
+   Dial: --rule-strong alpha, or the opacity utility at the call site. */
+@utility dot-grid {
+  background-image: radial-gradient(
+    circle at center,
+    var(--rule-strong) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+}
+
+/* Hairline rule that fades at both ends -- a softer section divider than a
+   full-width border. */
+@utility rule-fade {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--rule-strong) 20%,
+    var(--rule-strong) 80%,
+    transparent
+  );
+}
+
+/* Soft accent bloom. Place absolutely behind a focal element. */
+@utility bloom {
+  background: radial-gradient(
+    circle at center,
+    var(--accent-soft) 0%,
+    transparent 70%
+  );
+  filter: blur(8px);
+}
+
+/* ---------------------------------------------------------------------------
+   Interaction
+
+   Hover behaviour lives here rather than in each component, so every card on the
+   page responds the same way and the feel is tuned in one edit instead of six.
+
+   The amplitudes are deliberately small: 2px on a card, 1px on a pill. Below the
+   fold this page is a long column of similar surfaces, and anything larger reads
+   as the layout twitching rather than as a response.
+--------------------------------------------------------------------------- */
+
+/* Cards that respond to the pointer: a small lift, a deeper shadow, and the
+   accent picking up in the border.
+   No fill change on the surface itself -- across six cards in a column that
+   flashes rather than responds.
+   Replaces `transition-colors` at the call site: a colours-only transition
+   leaves the lift snapping instantly, which is worse than no lift at all. */
+@utility card-interactive {
+  transition:
+    transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in oklab, var(--accent) 45%, transparent);
+    box-shadow: var(--elevation-lift);
+  }
+}
+
+/* Pills -- skill chips, social circles. The same idea at a smaller amplitude,
+   with accent-soft doing the colour work since these have no shadow to deepen. */
+@utility chip-interactive {
+  transition:
+    transform 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in oklab, var(--accent) 40%, transparent);
+    background-color: var(--accent-soft);
+    color: var(--accent);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+/* The one element on the page that moves without being asked: the node marking
+   the current role. Slow and shallow on purpose -- a live indicator, not a blink.
+   Anything faster than about 2s starts competing with the text for attention. */
+@utility live-dot {
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+/* Reduced-motion overrides for the three utilities above.
+ *
+ * These MUST live out here rather than as a nested @media inside each @utility:
+ * Tailwind v4 discards a media query nested in an @utility body and emits its
+ * declarations unconditionally. That put a bare `transform: none` after the lift
+ * rule, so the hover did nothing for anybody -- and silently, since the class was
+ * still generated. Verified in the built CSS, not assumed.
+ *
+ * Unlayered rules beat the layered utilities they override, so no !important. */
+@media (prefers-reduced-motion: reduce) {
+  /* Keep the colour response, drop the movement. */
+  .card-interactive {
+    transition: border-color 200ms ease;
+  }
+
+  .card-interactive:hover,
+  .chip-interactive:hover {
+    transform: none;
+  }
+
+  .live-dot {
+    animation: none;
+  }
+}
+
