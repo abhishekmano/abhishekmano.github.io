@@ -1,62 +1,35 @@
-import { FiDownload } from "react-icons/fi";
-import { Button } from "@/components/ui/button";
-//Components
-import Socials from "@/components/Socials";
-import Photo from "@/components/styledElements/Photo";
+import React from "react";
+import Hero from "@/components/sections/Hero";
 import Stats from "@/components/styledElements/Stats";
-import PDFViewer from "@/components/PdfViewer";
+import AboutSection from "@/components/sections/AboutSection";
+import ExperienceSection from "@/components/sections/ExperienceSection";
+import SkillsSection from "@/components/sections/SkillsSection";
+import ProjectsSection from "@/components/sections/ProjectsSection";
+import EducationSection from "@/components/sections/EducationSection";
+import ContactSection from "@/components/sections/ContactSection";
+
+// Single page. Section order here mirrors content/sections.js, which also drives
+// the header nav and its scroll-spy -- so the nav can never drift out of step with
+// the page.
 export default function Home() {
   return (
-    <section className="h-full">
-      <div className="container mx-auto h-full">
-        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-8">
-          <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">Software Developer</span>
-            <h1 className="h1">
-              Hello I&apos;m <br />
-              <span className="text-accent">Abhishek Manoharan</span>
-            </h1>
-            <p className="max-w-[500px] mb-7 text-contrast/80">
-              👨🏽‍💻 Full-Time coder 📚 Part-Time Reader 🏸 Badminton Enthusiast and
-              Occasional Chef 🍳.
-            </p>
-            <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button
-                variant="outline"
-                size="lg"
-                className="uppercase flex items-center gap-2"
-              >
-                <div className="hidden xl:flex">
-                  <PDFViewer>
-                    <span>Resume</span>{" "}
-                  </PDFViewer>
-                </div>
-                <a href="resume.pdf" download className="hidden xl:flex">
-                  <FiDownload className="text-xl" />
-                </a>
-                <div className="xl:hidden">
-                  <a href="resume.pdf" download className="flex">
-                    <span>Resume</span>
-                    <FiDownload className="text-xl" />
-                  </a>
-                </div>
-              </Button>
-              <div className="mb-8 xl:mb-0">
-                <Socials
-                  containerStyles="flex gap-6"
-                  iconStyles="w-9 h-9 border border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
-                />
-              </div>
-            </div>
-          </div>
-          {/* Social Information */}
-
-          <div className="order-1 xl:order xl:order:none mb-8 xl:mb-0 ">
-            <Photo />
-          </div>
-        </div>
+    <main>
+      {/* Hero and the stats band together fill one viewport on a normal screen, so
+          nothing from the next section peeks above the fold. The min() caps that at
+          46rem: without the cap, a tall window stretched the hero to its full height
+          and left a large dead gap above and below the content. dvh rather than vh
+          because mobile browser chrome makes vh overshoot. */}
+      <div className="flex min-h-[min(calc(100dvh-4rem),46rem)] flex-col">
+        <Hero />
+        <Stats />
       </div>
-      <Stats />
-    </section>
+
+      <AboutSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <ProjectsSection />
+      <EducationSection />
+      <ContactSection />
+    </main>
   );
 }

@@ -5,27 +5,27 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-base font-semibold ring-offset-white transition-colors",
+  // gap-2 so trailing icons space themselves instead of each caller adding margin.
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-accent text-primary hover:bg-accent-hover",
-        primary: "bg-primary text-accent",
+        default: "bg-accent text-accent-contrast hover:bg-accent-hover",
         outline:
-          "border border-accent bg-transaprent text-accent hover:bg-accent hover:text-primary",
+          // Was `bg-transaprent` -- a typo, so the utility never applied.
+          "border border-rule-strong bg-transparent text-ink hover:border-accent hover:bg-accent-soft hover:text-accent",
         secondary:
-          "bg-slate-100 text-slate-900 hover:bg-slate-100/80 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
-        ghost:
-          "hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50",
-        link: "text-slate-900 underline-offset-4 hover:underline dark:text-slate-50",
-        destructive:
-          "bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90",
+          "border border-rule bg-sunken text-ink hover:bg-paper",
+        ghost: "text-muted hover:bg-sunken hover:text-ink",
+        link: "text-accent underline-offset-4 hover:underline",
+        destructive: "bg-red-600 text-white hover:bg-red-700",
       },
       size: {
-        default: "h-[44px] px-6",
-        sm: "h-9 rounded-md px-3",
-        md: "h-[48px] px-6",
-        lg: "h-[56px] px-8 text-sm uppercase tracking-[2px]",
+        default: "h-10 px-5 text-sm",
+        sm: "h-9 px-4 text-sm",
+        md: "h-11 px-5 text-sm",
+        // Dropped the uppercase + 2px tracking: shouty against a serif display face.
+        lg: "h-12 px-6 text-[15px]",
         icon: "h-10 w-10",
       },
     },
@@ -33,21 +33,18 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
-const Button = React.forwardRef(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    );
-  }
-);
-Button.displayName = "Button";
+// React 19 passes ref as a normal prop, so forwardRef is no longer needed.
+const Button = ({ className, variant, size, asChild = false, ...props }) => {
+  const Comp = asChild ? Slot : "button";
+  return (
+    <Comp
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    />
+  );
+};
 
 export { Button, buttonVariants };

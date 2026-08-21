@@ -7,37 +7,36 @@ import { cn } from "@/lib/utils";
 
 const Tabs = TabsPrimitive.Root;
 
-const TabsList = React.forwardRef(({ className, ...props }, ref) => (
+const TabsList = ({ className, ...props }) => (
   <TabsPrimitive.List
-    ref={ref}
-    className={cn("inline-flex h-auto rounded-md p-1 text-primary ", className)}
+    className={cn("flex h-auto gap-1", className)}
     {...props}
   />
-));
-TabsList.displayName = TabsPrimitive.List.displayName;
+);
 
-const TabsTrigger = React.forwardRef(({ className, ...props }, ref) => (
+// The active tab is a left accent bar plus a weight change, not the solid blue
+// slab it used to be -- that read as a heavy button rather than a selected item,
+// and the inactive tabs were flat grey pills with no hierarchy.
+const TabsTrigger = ({ className, ...props }) => (
   <TabsPrimitive.Trigger
-    ref={ref}
     className={cn(
-      "inline-flex items-center w-full bg-primary-hover justify-center whitespace-nowrap text-contrast rounded-lg p-3 text-balance font-medium ring-offset-contrast transition-all disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-accent data-[state=active]:text-primary data-[state=active]:font-bold data-[state=active]:shadow-sm",
-      className
+      "group relative inline-flex items-center justify-start whitespace-nowrap rounded-md px-4 py-2.5 text-left text-sm font-medium text-muted transition-colors",
+      "hover:bg-sunken hover:text-ink",
+      "data-[state=active]:bg-accent-soft data-[state=active]:text-accent",
+      "disabled:pointer-events-none disabled:opacity-50",
+      // The bar itself: full-height on the vertical (xl) layout, an underline on
+      // the horizontal one, so it reads correctly in both.
+      "before:absolute before:bg-accent before:opacity-0 data-[state=active]:before:opacity-100",
+      "before:inset-x-3 before:bottom-0 before:h-0.5",
+      "xl:before:inset-y-1.5 xl:before:inset-x-auto xl:before:left-0 xl:before:h-auto xl:before:w-0.5",
+      className,
     )}
     {...props}
   />
-));
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
+);
 
-const TabsContent = React.forwardRef(({ className, ...props }, ref) => (
-  <TabsPrimitive.Content
-    ref={ref}
-    className={cn(
-      "min-h-[480px] ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300",
-      className
-    )}
-    {...props}
-  />
-));
-TabsContent.displayName = TabsPrimitive.Content.displayName;
+const TabsContent = ({ className, ...props }) => (
+  <TabsPrimitive.Content className={cn("mt-6 xl:mt-0", className)} {...props} />
+);
 
 export { Tabs, TabsList, TabsTrigger, TabsContent };

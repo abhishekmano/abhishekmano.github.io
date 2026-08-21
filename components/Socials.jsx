@@ -1,29 +1,24 @@
+import React from "react";
 import Link from "next/link";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaCode,
-  FaEnvelope,
-  FaWhatsapp,
-  FaPhoneAlt,
-} from "react-icons/fa";
-
-const socialLinks = [
-  { icon: <FaLinkedin />, path: "https://www.linkedin.com/in/abhishek-mano/" },
-  { icon: <FaCode />, path: "https://leetcode.com/u/AbhishekManoharan/" },
-  { icon: <FaEnvelope />, path: "mailto:abhishekmanoharan1999@gmail.com" },
-  { icon: <FaGithub />, path: "https://github.com/abhishekmano" },
-  { icon: <FaWhatsapp />, path: "https://wa.me/918891410500" },
-  { icon: <FaPhoneAlt />, path: "tel:+918891410500" },
-];
+import { socials } from "@/content/site";
+import { Icon } from "@/lib/icons";
 
 const Socials = ({ containerStyles, iconStyles }) => {
   return (
     <div className={containerStyles}>
-      {socialLinks.map((link, idx) => {
+      {socials.map((link) => {
+        const external = link.href.startsWith("http");
+
         return (
-          <Link key={idx} href={link.path} className={iconStyles}>
-            {link.icon}
+          <Link
+            key={link.label}
+            href={link.href}
+            className={iconStyles}
+            aria-label={link.label}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
+          >
+            <Icon name={link.icon} />
           </Link>
         );
       })}
